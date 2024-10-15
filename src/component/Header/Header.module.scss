@@ -1,0 +1,59 @@
+.header {
+    padding: 50px 0 40px;
+    border-bottom: 1px solid #d7d7d7;
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        gap: 17px;
+
+        &__pic {
+            cursor: pointer;
+        }
+
+        &__title {
+            font-weight: 800;
+            font-size: 28px;
+        }
+
+        &__subtitle {
+            font-weight: 400;
+            font-size: 16px;
+            color: #7B7B7B;
+            margin-top: -5px;
+        }
+    }
+
+    .button-cart {
+        padding: 15px 23px;
+        display: flex;
+        align-items: center;
+        background: #FE5F1E;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+
+        &__delimiter {
+            height: 25px;
+            width: 1px;
+            background: #ffffff76;
+            margin-left: 13px;
+            margin-right: 13px;
+        }
+
+        &__total {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+    }
+}

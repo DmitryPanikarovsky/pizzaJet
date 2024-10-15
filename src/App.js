@@ -1,6 +1,11 @@
-import "./App.css";
+import "./App.scss";
+import { Header } from './component/Header/Header'
 
 function App() {
-  return <div className="App"></div>;
+    return (
+        <div className="App">
+            <Header />
+        </div>
+    );
 }
 export default App;
