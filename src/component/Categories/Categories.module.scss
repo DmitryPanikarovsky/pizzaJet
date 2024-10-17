@@ -13,17 +13,13 @@
         cursor: pointer;
         
         &:hover {
-            background: #ededed;
-            border: 2px solid #ededed;
+            border: 2px solid #FE5F1E;
+            color: #FE5F1E;
         }
 
         &.active {
             border: 2px solid #FE5F1E;
             color: #FE5F1E;
-
-            &:hover {
-                background: #fff;
-            }
         }
     }
 }
