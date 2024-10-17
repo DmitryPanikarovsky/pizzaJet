@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -11,5 +12,6 @@ body {
 
 ul>li {
     padding-left: 0;
+    list-style: none;
 }
 

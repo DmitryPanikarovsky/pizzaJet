@@ -1,0 +1,95 @@
+.pizza-block {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__image {
+        width: 260px;
+        height: 260px;
+        margin: 0;
+        margin-left: 18px;
+    }
+
+    &__title {
+        color: #000;
+        font-weight: 800;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    &__selector {
+        margin-top: 22px;
+        width: 100%;
+        background: #f3f3f3;
+        border-radius: 10px;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        ul {
+            display: flex;
+            gap: 6px;
+            
+            li {
+                flex: 1;
+                text-align: center;
+                font-weight: 700;
+                font-size: 14px;
+                padding: 7px 0;
+                cursor: pointer;
+    
+                &.active {
+                    background: #fff;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        margin-top: 17px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 22px;
+    }
+
+    .button {
+        display: flex;
+        gap: 7px;
+        padding: 8px 11px;
+        border: 2px solid #eb5a1e;
+        border-radius: 27px;
+        cursor: pointer;
+        transition: all .2s ease;
+
+        span {
+            font-weight: 700;
+            font-size: 16px;
+            color: #eb5a1e;
+        }
+
+        i {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #eb5a1e;
+            font-weight: 700;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
