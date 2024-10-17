@@ -4,7 +4,8 @@
 
     li {
         border-radius: 30px;
-        background: #f3f3f3;
+        border: 2px solid #dbdbdb;
+        background: #fff;
         padding: 12px 34px;
         font-weight: 700;
         font-size: 16px;
@@ -13,12 +14,16 @@
         
         &:hover {
             background: #ededed;
+            border: 2px solid #ededed;
         }
 
         &.active {
-            background: #FE5F1E;
-            color: #fff;
+            border: 2px solid #FE5F1E;
+            color: #FE5F1E;
+
+            &:hover {
+                background: #fff;
+            }
         }
     }
-    
 }
