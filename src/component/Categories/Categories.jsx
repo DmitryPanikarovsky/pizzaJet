@@ -6,14 +6,10 @@ export const Categories = () => {
 
     const [activeIndex, setActiveIndex] = React.useState(0);
 
-    const onClickCategory = (index) => {
-        setActiveIndex(index);
-    };
-
     return (
         <ul className={styles.categories}>
             {categories.map((value, index) => (
-                <li onClick={() => {onClickCategory(index)}} className={activeIndex === index ? styles.active : ''}>
+                <li onClick={() => {setActiveIndex(index)}} className={activeIndex === index ? styles.active : ''}>
                     {value}
                 </li>
             ))}
