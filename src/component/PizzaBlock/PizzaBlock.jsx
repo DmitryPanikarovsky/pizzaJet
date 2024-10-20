@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./PizzaBlock.module.scss";
 
 export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
-    const typeNames = ["тонкое", "традиционное"];
-
-    const [activeSize, setActiveSize] = React.useState(0);
     const [activeType, setActiveType] = React.useState(0);
+    const [activeSize, setActiveSize] = React.useState(0);
+
+    const typeNames = ["тонкое", "традиционное"];
 
     return (
         <div className={styles["pizza-block"]}>
@@ -14,14 +14,22 @@ export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
             <div className={styles["pizza-block__selector"]}>
                 <ul>
                     {types.map((typeId) => (
-                        <li onClick={() => setActiveType(typeId)} className={activeType === typeId ? styles.active : ""}>
+                        <li
+                            key={typeId}
+                            onClick={() => setActiveType(typeId)}
+                            className={activeType === typeId ? styles.active : ""}
+                        >
                             {typeNames[typeId]}
                         </li>
                     ))}
                 </ul>
                 <ul>
                     {sizes.map((size, index) => (
-                        <li onClick={() => setActiveSize(index)} className={activeSize === index ? styles.active : ""}>
+                        <li
+                            key={index}
+                            onClick={() => setActiveSize(index)}
+                            className={activeSize === index ? styles.active : ""}
+                        >
                             {size} см.
                         </li>
                     ))}

@@ -9,7 +9,13 @@ export const Categories = () => {
     return (
         <ul className={styles.categories}>
             {categories.map((value, index) => (
-                <li onClick={() => {setActiveIndex(index)}} className={activeIndex === index ? styles.active : ''}>
+                <li
+                    key={index}
+                    onClick={() => {
+                        setActiveIndex(index);
+                    }}
+                    className={activeIndex === index ? styles.active : ""}
+                >
                     {value}
                 </li>
             ))}
