@@ -4,28 +4,22 @@ import { Header } from "./component/Header/Header";
 import { Categories } from "./component/Categories/Categories";
 import { Sorting } from "./component/Sorting/Sorting";
 import { PizzaBlock } from "./component/PizzaBlock/PizzaBlock";
+import { Skeleton } from "./component/PizzaBlock/Skeleton";
 import React from "react";
 import axios from "axios";
-import { Skeleton } from "./component/PizzaBlock/Skeleton";
 
 function App() {
     const [pizzas, setPizzas] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
     React.useEffect(() => {
-        setTimeout(() => {
-            axios.get("https://66f2d5e071c84d805876ef77.mockapi.io/pizzas").then((response) => {
+        axios.get("https://66f2d5e071c84d805876ef77.mockapi.io/pizzas").then((response) => {
+            setTimeout(() => {
                 setPizzas(response.data);
                 setIsLoading(false);
-            });
-        }, 5000);
+            }, 5000);
+        });
     }, []);
-
-    // React.useEffect(() => {
-    //     fetch("https://66f2d5e071c84d805876ef77.mockapi.io/pizzas")
-    //         .then((res) => res.json())
-    //         .then((arr) => setPizzas(arr));
-    // }, []);
 
     return (
         <div className="App">

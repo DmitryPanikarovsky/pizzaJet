@@ -4,8 +4,13 @@ import styles from "./PizzaBlock.module.scss";
 export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
     const [activeType, setActiveType] = React.useState(0);
     const [activeSize, setActiveSize] = React.useState(0);
+    const [count, setCount] = React.useState(0);
 
     const typeNames = ["тонкое", "традиционное"];
+
+    const addPizzaOnCart = () => {
+        setCount((count) => count + 1);
+    };
 
     return (
         <div className={styles["pizza-block"]}>
@@ -14,22 +19,14 @@ export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
             <div className={styles["pizza-block__selector"]}>
                 <ul>
                     {types.map((typeId) => (
-                        <li
-                            key={typeId}
-                            onClick={() => setActiveType(typeId)}
-                            className={activeType === typeId ? styles.active : ""}
-                        >
+                        <li key={typeId} onClick={() => setActiveType(typeId)} className={activeType === typeId ? styles.active : ""}>
                             {typeNames[typeId]}
                         </li>
                     ))}
                 </ul>
                 <ul>
                     {sizes.map((size, index) => (
-                        <li
-                            key={index}
-                            onClick={() => setActiveSize(index)}
-                            className={activeSize === index ? styles.active : ""}
-                        >
+                        <li key={index} onClick={() => setActiveSize(index)} className={activeSize === index ? styles.active : ""}>
                             {size} см.
                         </li>
                     ))}
@@ -37,10 +34,10 @@ export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
             </div>
             <div className={styles["pizza-block__bottom"]}>
                 <div className={styles["pizza-block__price"]}>от {price} ₽</div>
-                <div className={styles.button}>
+                <div onClick={() => addPizzaOnCart()} className={styles.button}>
                     <img src="./img/add.svg" alt="Добавить" />
                     <span>Добавить</span>
-                    <i>2</i>
+                    {count > 0 ? <b>{count}</b> : ""}
                 </div>
             </div>
         </div>
