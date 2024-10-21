@@ -5,7 +5,7 @@ export const Sorting = () => {
     const sortItem = ["популярности", "цене", "алфавиту"];
 
     const [open, setOpen] = React.useState(false);
-    const [selected, setSelected] = React.useState();
+    const [selected, setSelected] = React.useState(0);
 
     const onClickSortItem = (index) => {
         setSelected(index);

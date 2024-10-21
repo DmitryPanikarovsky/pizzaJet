@@ -14,17 +14,23 @@ function App() {
         axios.get("https://66f2d5e071c84d805876ef77.mockapi.io/pizzas").then((response) => setPizzas(response.data));
     }, []);
 
+    // React.useEffect(() => {
+    //     fetch("https://66f2d5e071c84d805876ef77.mockapi.io/pizzas")
+    //         .then((res) => res.json())
+    //         .then((arr) => setPizzas(arr));
+    // }, []);
+
     return (
         <div className="App">
             <Header />
             <div className="content">
                 <Container>
                     <div className="content-top">
-                        <Categories />
                         <Sorting />
+                        <Categories />
                     </div>
                     <h2 className="heading">Все пиццы</h2>
-                    <div className="pizza-page">
+                    <div className="content-page">
                         {pizzas.map((item) => (
                             <PizzaBlock key={item.id} {...item} />
                         ))}
