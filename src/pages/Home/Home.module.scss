@@ -1,0 +1,22 @@
+.Home {
+    padding: 40px 0 80px;
+    
+    .content-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .heading {
+        margin-top: 32px;
+        font-weight: 700;
+        font-size: 32px;
+    }
+    
+    .content-page {
+        margin-top: 35px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+    }
+}

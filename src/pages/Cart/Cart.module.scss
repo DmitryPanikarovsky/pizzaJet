@@ -1,0 +1,201 @@
+.сart {
+    padding: 95px 0;
+    
+    &__content {
+        width: 821px;
+        margin: 0 auto;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .heading {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+
+        h3 {
+            margin-top: 2px;
+            font-weight: 700;
+            font-size: 36px;
+        }   
+    }
+
+    .clear {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: all .2s;
+        
+        span {
+            margin-top: 2px;
+            font-weight: 400;
+            font-size: 16px;
+            color: #b6b6b6;
+            transition: all .3s;
+        }
+        
+        &:hover {
+            span {
+                color: #575757;
+            }
+        }
+    }
+
+    &__products {
+        margin-top: 30px;
+
+        .product-item {
+            padding: 30px 0;
+            border-top: 1px solid #d8d8d8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-left {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            h4 {
+                font-weight: 700;
+                font-size: 22px;
+            }
+
+            span {
+                font-weight: 400;
+                font-size: 18px;
+                color: #8d8d8d;
+            }
+        }
+
+        .item-right {
+            display: flex;
+            align-items: center;
+            gap: 90px;
+
+        }
+
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            span {
+                font-weight: 700;
+                font-size: 22px;
+            }
+        }
+        
+        .item-price {
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .minus, .plus, .remove {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #fe5f1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+
+        .remove {
+            border: 2px solid #e0e0e0;
+        }
+    }
+
+    .total {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-pieces, &-price {
+            font-weight: 400;
+            font-size: 22px;
+        }
+
+        &-pieces {
+            span {
+                font-weight: 800;
+            }
+        }
+
+        &-price {
+            span {
+                font-weight: 800;
+                color: #fe5f1e;
+            }
+        }
+    }
+
+    .buttons {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left {
+            padding: 15px 35px;
+            border: 2px solid #e0e0e0;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 16px;
+            color: #cacaca;
+            cursor: pointer;
+            transition: all .3s;
+            
+            img {
+                transition: all .3s;
+                margin-right: 15px;
+            }
+
+            &:hover {
+                img {
+                    transform: translateX(-10px);
+                }
+            }
+        }
+
+        .right {
+            padding: 15px 40px;
+            border: 2px solid #fe5f1e;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #fe5f1e;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
