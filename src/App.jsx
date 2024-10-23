@@ -6,7 +6,9 @@ import { Container } from "./component/Container/Container";
 import { Header } from "./component/Header/Header";
 import { Home } from "./pages/Home/Home";
 import { Cart } from "./pages/Cart/Cart";
-import { EmptyCart } from "./pages/NotFound/EmptyCart";
+import { EmptyCart } from "./pages/EmptyCart/EmptyCart";
+import { NotFound } from "./pages/NotFound/NotFound";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
     return (
@@ -14,9 +16,11 @@ function App() {
             <Header />
             <div className="content">
                 <Container>
-                    <Home />
-                    <Cart />
-                    <EmptyCart />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
                 </Container>
             </div>
         </div>

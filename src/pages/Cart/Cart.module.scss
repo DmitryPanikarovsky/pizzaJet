@@ -37,7 +37,7 @@
             margin-top: 2px;
             font-weight: 400;
             font-size: 16px;
-            color: #b6b6b6;
+            color: #9c9c9c;
             transition: all .3s;
         }
         
@@ -119,10 +119,18 @@
             &:hover {
                 transform: scale(1.15);
             }
+            
+            &:active {
+                transform: scale(1);
+            }
         }
 
         .remove {
-            border: 2px solid #e0e0e0;
+            border: 2px solid #fe5f1e;
+
+            img {
+                transform: rotate(45deg);
+            }
         }
     }
 
@@ -159,13 +167,13 @@
 
         .left {
             padding: 15px 35px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #9c9c9c;
             border-radius: 40px;
             display: flex;
             align-items: center;
             font-weight: 400;
             font-size: 16px;
-            color: #cacaca;
+            color: #9c9c9c;
             cursor: pointer;
             transition: all .3s;
             
@@ -178,6 +186,10 @@
                 img {
                     transform: translateX(-10px);
                 }
+            }
+
+            &:active {
+                transform: scale(.95);
             }
         }
 
@@ -195,6 +207,10 @@
 
             &:hover {
                 transform: scale(1.05);
+            }
+
+            &:active {
+                transform: scale(1);
             }
         }
     }

@@ -2,7 +2,8 @@
     display: flex;
     gap: 10px;
     overflow: scroll;
-    max-width: 880px;
+    max-width: 900px;
+    padding: 0 10px;
 
     &::-webkit-scrollbar {
         display: none;
@@ -10,8 +11,7 @@
 
     li {
         border-radius: 30px;
-        border: 2px solid #dbdbdb;
-        background: #fff;
+        border: 2px solid #a6a6a6;
         padding: 12px 34px;
         font-weight: 700;
         font-size: 16px;

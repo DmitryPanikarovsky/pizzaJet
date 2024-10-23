@@ -17,7 +17,7 @@ export const Home = () => {
             setTimeout(() => {
                 setPizzas(response.data);
                 setIsLoading(false);
-            }, 3500);
+            }, 1500);
         });
     }, []);
 
@@ -30,7 +30,7 @@ export const Home = () => {
             <h2 className={styles.heading}>Все пиццы</h2>
             <div className={styles["content-page"]}>
                 {isLoading
-                    ? [...new Array(11)].map((_, index) => <Skeleton key={index} />)
+                    ? [...new Array(11 )].map((_, index) => <Skeleton key={index} />)
                     : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
             </div>
         </div>
