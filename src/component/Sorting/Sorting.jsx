@@ -1,9 +1,7 @@
 import React from "react";
 import styles from "./Sorting.module.scss";
 
-export const Sorting = ({ value, onChangeSort }) => {
-    const [open, setOpen] = React.useState(false);
-
+export const Sorting = ({ value, onChangeSort, openPopup, setOpenPopup }) => {
     const sortItem = [
         { name: "популярности", properties: "rating" },
         { name: "цене (дешевле)", properties: "price" },
@@ -13,17 +11,17 @@ export const Sorting = ({ value, onChangeSort }) => {
 
     const onClickSortItem = (index) => {
         onChangeSort(index);
-        setOpen(!open);
+        setOpenPopup();
     };
 
     return (
         <div className={styles.sorting}>
             <div className={styles["sorting__label"]}>
-                <img src="./img/vector-sort.svg" alt="стрелочка" className={open && styles.active} />
+                <img src="./img/vector-sort.svg" alt="стрелочка" className={openPopup && styles.active} />
                 <div>Сортировка по:</div>
-                <span onClick={() => setOpen(!open)}>{value.name}</span>
+                <span onClick={setOpenPopup}>{value.name}</span>
             </div>
-            {open && (
+            {openPopup && (
                 <div className={styles["sorting__popup"]}>
                     <ul>
                         {sortItem.map((object, index) => (
