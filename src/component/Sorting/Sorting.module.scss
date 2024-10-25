@@ -1,6 +1,6 @@
 .sorting {
     position: relative;
-    width: 230px;
+    width: 240px;
 
     &__popup {
         position: absolute;
@@ -11,7 +11,7 @@
         border-radius: 10px;
         overflow: hidden;
         padding: 10px 0;
-        width: 165px;
+        width: 215px;
 
         ul {
             overflow: hidden;
@@ -38,6 +38,14 @@
         display: flex;
         align-items: center;
         gap: 10px;
+
+        img {
+            transition: transform .3s;
+
+            &.active {
+                transform: rotate(180deg);
+            }
+        }
 
         div {
             font-weight: 700;

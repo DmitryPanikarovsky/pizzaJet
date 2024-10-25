@@ -61,5 +61,9 @@
                 margin-left: 43px;
             }
         }
+
+        &:active {
+            transform: scale(.9);
+        }
     }
 }

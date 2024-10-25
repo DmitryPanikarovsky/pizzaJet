@@ -1,22 +1,18 @@
 import React from "react";
 import styles from "./Categories.module.scss";
 
-export const Categories = () => {
+export const Categories = ({ value, onClickCategory }) => {
     const categories = ["Все", "Мясные", "Вегетарианская", "Гриль", "Острые", "Закрытые"];
-
-    const [activeIndex, setActiveIndex] = React.useState(0);
 
     return (
         <ul className={styles.categories}>
-            {categories.map((value, index) => (
+            {categories.map((categoryName, i) => (
                 <li
-                    key={index}
-                    onClick={() => {
-                        setActiveIndex(index);
-                    }}
-                    className={activeIndex === index ? styles.active : ""}
+                    key={i}
+                    onClick={() => onClickCategory(i)}
+                    className={value === i ? styles.active : ""}
                 >
-                    {value}
+                    {categoryName}
                 </li>
             ))}
         </ul>

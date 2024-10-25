@@ -6,7 +6,6 @@ import { Container } from "./component/Container/Container";
 import { Header } from "./component/Header/Header";
 import { Home } from "./pages/Home/Home";
 import { Cart } from "./pages/Cart/Cart";
-import { EmptyCart } from "./pages/EmptyCart/EmptyCart";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Route, Routes } from "react-router-dom";
 

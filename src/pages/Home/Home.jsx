@@ -12,25 +12,40 @@ export const Home = () => {
     const [pizzas, setPizzas] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
+    const [categoryId, setCategoryId] = React.useState(0);
+    const [sortType, setSortType] = React.useState({
+        name: "популярности",
+        properties: "rating",
+    });
+
+    
     React.useEffect(() => {
-        axios.get("https://66f2d5e071c84d805876ef77.mockapi.io/pizzas").then((response) => {
-            setTimeout(() => {
-                setPizzas(response.data);
-                setIsLoading(false);
-            }, 1500);
-        });
-    }, []);
+        const sortBy = sortType.properties.replace("-", "");
+        const order = sortType.properties.includes("-") ? "desc" : "asc";
+        const category = categoryId > 0 ? `category=${categoryId}` : "";
+        
+        setIsLoading(true);
+        axios
+            .get(`https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`)
+            .then((response) => {
+                setTimeout(() => {
+                    setPizzas(response.data);
+                    setIsLoading(false);
+                }, 500);
+            });
+        window.scrollTo(0, 0);
+    }, [categoryId, sortType]);
 
     return (
         <div className={styles.Home}>
             <div className={styles["content-top"]}>
-                <Sorting />
-                <Categories />
+                <Sorting value={sortType} onChangeSort={(i) => setSortType(i)} />
+                <Categories value={categoryId} onClickCategory={(i) => setCategoryId(i)} />
             </div>
             <h2 className={styles.heading}>Все пиццы</h2>
             <div className={styles["content-page"]}>
                 {isLoading
-                    ? [...new Array(11 )].map((_, index) => <Skeleton key={index} />)
+                    ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
                     : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
             </div>
         </div>

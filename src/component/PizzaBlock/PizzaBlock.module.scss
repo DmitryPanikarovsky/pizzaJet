@@ -1,6 +1,5 @@
 .pizza-block {
     width: 280px;
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +64,7 @@
     .button {
         display: flex;
         gap: 7px;
-        padding: 8px 14px;
+        padding: 10px 14px;
         border: 2px solid #eb5a1e;
         border-radius: 27px;
         cursor: pointer;
@@ -78,8 +77,8 @@
         }
 
         b {
-            width: 22px;
-            height: 22px;
+            width: 25px;
+            height: 21px;
             display: flex;
             justify-content: center;
             align-items: center;

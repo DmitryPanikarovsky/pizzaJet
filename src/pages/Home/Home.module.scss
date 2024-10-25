@@ -10,13 +10,16 @@
     .heading {
         margin-top: 32px;
         font-weight: 700;
-        font-size: 32px;
+        font-size: 42px;
     }
     
     .content-page {
-        margin-top: 35px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 28px;
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 280px));
+        grid-template-rows: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        gap: 50px 28px;
+        justify-content: center;
     }
 }
