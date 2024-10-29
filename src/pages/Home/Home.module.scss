@@ -1,10 +1,14 @@
 .Home {
-    padding: 40px 0 80px;
-    
     .content-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media (max-width: 1280px) {
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+        }
     }
     
     .heading {
@@ -16,10 +20,12 @@
     .content-page {
         margin-top: 50px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 280px));
+        grid-template-columns: repeat(auto-fill, 280px);
         grid-template-rows: repeat(2, 1fr);
         grid-auto-rows: auto;
         gap: 50px 28px;
         justify-content: center;
     }
 }
+
+

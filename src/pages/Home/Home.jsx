@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import styles from "./Home.module.scss";
@@ -9,29 +9,31 @@ import { Skeleton } from "../../component/PizzaBlock/Skeleton";
 import { PizzaBlock } from "../../component/PizzaBlock/PizzaBlock";
 
 export const Home = () => {
-    const [pizzas, setPizzas] = React.useState([]);
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [pizzas, setPizzas] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const [open, setOpen] = React.useState(false);
-    const [categoryId, setCategoryId] = React.useState(0);
-    const [sortType, setSortType] = React.useState({
+    const [open, setOpen] = useState(false);
+    const [categoryId, setCategoryId] = useState(0);
+    const [sortType, setSortType] = useState({
         name: "популярности",
         properties: "rating",
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         const sortBy = sortType.properties.replace("-", "");
         const order = sortType.properties.includes("-") ? "desc" : "asc";
         const category = categoryId > 0 ? `category=${categoryId}` : "";
 
         setIsLoading(true);
         axios
-            .get(`https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`)
+            .get(
+                `https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`
+            )
             .then((response) => {
                 setTimeout(() => {
                     setPizzas(response.data);
                     setIsLoading(false);
-                }, 500);
+                }, 3500);
             });
         window.scrollTo(0, 0);
     }, [categoryId, sortType]);
@@ -39,7 +41,12 @@ export const Home = () => {
     return (
         <div className={styles.Home} onClick={() => setOpen(false)}>
             <div className={styles["content-top"]} onClick={(e) => e.stopPropagation()}>
-                <Sorting value={sortType} onChangeSort={(i) => setSortType(i)} openPopup={open} setOpenPopup={() => setOpen(!open)} />
+                <Sorting
+                    value={sortType}
+                    onChangeSort={(i) => setSortType(i)}
+                    openPopup={open}
+                    setOpenPopup={() => setOpen(!open)}
+                />
                 <Categories value={categoryId} onClickCategory={(i) => setCategoryId(i)} />
             </div>
             <h2 className={styles.heading}>Все пиццы</h2>

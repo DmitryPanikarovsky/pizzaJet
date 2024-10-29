@@ -1,10 +1,10 @@
-import React from "react";
+import { useState } from 'react'
 import styles from "./PizzaBlock.module.scss";
 
 export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
-    const [activeType, setActiveType] = React.useState(0);
-    const [activeSize, setActiveSize] = React.useState(0);
-    const [count, setCount] = React.useState(0);
+    const [activeType, setActiveType] = useState(0);
+    const [activeSize, setActiveSize] = useState(0);
+    const [count, setCount] = useState(0);
 
     const typeNames = ["тонкое", "традиционное"];
 

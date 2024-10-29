@@ -5,11 +5,11 @@ import styles from "./PizzaBlock.module.scss";
 export const Skeleton = (props) => (
     <ContentLoader
         className={styles["pizza-block"]}
-        speed={2}
+        speed={1.5}
         width={280}
         height={454}
         viewBox="0 0 280 454"
-        backgroundColor="#f5f5f5"
+        backgroundColor="#ffeec2"
         foregroundColor="#ffdf8c"
         {...props}
     >

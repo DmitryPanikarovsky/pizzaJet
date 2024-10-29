@@ -1,9 +1,19 @@
 .App {
-    max-width: 1340px;
+    max-width: 1360px;
     min-height: calc(100vh - 110px);
-    background: rgba(256, 256, 256, .8);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0);
     margin: 55px auto; 
-    overflow: hidden;  
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .content {
+        padding: 50px 0 50px;
+        border: 2px solid #a6a6a6bd;
+        border-radius: 35px;
+        background: rgba(255, 255, 255, 0.667);
+        
+    }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 import styles from "./Cart.module.scss";
-import { Link } from 'react-router-dom'
 
 export const Cart = () => {
     return (
@@ -20,7 +20,11 @@ export const Cart = () => {
                 <ul className={styles["сart__products"]}>
                     <li className={styles["product-item"]}>
                         <div className={styles["item-left"]}>
-                            <img width={80} src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif" alt="пицца" />
+                            <img
+                                width={80}
+                                src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif"
+                                alt="пицца"
+                            />
                             <div className={styles.description}>
                                 <h4>Сырный цыпленок</h4>
                                 <span>тонкое тесто, 26см</span>
@@ -44,7 +48,11 @@ export const Cart = () => {
                     </li>
                     <li className={styles["product-item"]}>
                         <div className={styles["item-left"]}>
-                            <img width={80} src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif" alt="пицца" />
+                            <img
+                                width={80}
+                                src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif"
+                                alt="пицца"
+                            />
                             <div className={styles.description}>
                                 <h4>Сырный цыпленок</h4>
                                 <span>тонкое тесто, 26см</span>
@@ -68,7 +76,11 @@ export const Cart = () => {
                     </li>
                     <li className={styles["product-item"]}>
                         <div className={styles["item-left"]}>
-                            <img width={80} src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif" alt="пицца" />
+                            <img
+                                width={80}
+                                src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif"
+                                alt="пицца"
+                            />
                             <div className={styles.description}>
                                 <h4>Сырный цыпленок</h4>
                                 <span>тонкое тесто, 26см</span>
@@ -92,7 +104,11 @@ export const Cart = () => {
                     </li>
                     <li className={styles["product-item"]}>
                         <div className={styles["item-left"]}>
-                            <img width={80} src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif" alt="пицца" />
+                            <img
+                                width={80}
+                                src="https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif"
+                                alt="пицца"
+                            />
                             <div className={styles.description}>
                                 <h4>Сырный цыпленок</h4>
                                 <span>тонкое тесто, 26см</span>
