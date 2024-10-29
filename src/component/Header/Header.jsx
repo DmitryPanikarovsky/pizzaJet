@@ -3,7 +3,7 @@ import { Container } from "../Container/Container";
 import styles from "./Header.module.scss";
 import { Search } from '../Search/Search'
 
-export const Header = () => {
+export const Header = ({ searchValue, setSearchValue }) => {
     return (
         <header className={styles.header}>
             <Container>
@@ -24,7 +24,7 @@ export const Header = () => {
                         </div>
                     </Link>
                     <div className={styles["header__right"]}>
-                        <Search />
+                        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
                         <Link to={"/cart"}>
                             <div className={styles["button-cart"]}>
                                 <div className={styles["button-cart__price"]}>

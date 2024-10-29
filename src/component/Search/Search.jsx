@@ -1,16 +1,24 @@
 import styles from "./Search.module.scss";
 
-export const Search = () => {
+export const Search = ({ searchValue, setSearchValue }) => {
     return (
         <div className={styles.search}>
-            <img className={styles.img}
+            <img
+                className={styles["search-pic"]}
                 src="https://img.icons8.com/pastel-glyph/50/search.png"
                 alt="search"
             />
-            <input className={styles.input} placeholder="Поиск..." />
-            <button className={styles.clear}>
-                <img src="./img/plus.svg" alt="крестик удалить" />
-            </button>
+            <input
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                className={styles.input}
+                placeholder="Поиск пиццы..."
+            />
+            {searchValue && (
+                <div className={styles.remove} onClick={() => setSearchValue("")}>
+                    <img src="https://img.icons8.com/ios/50/FD7E14/cancel.png" alt="cancel" />
+                </div>
+            )}
         </div>
     );
 };

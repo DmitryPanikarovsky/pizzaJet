@@ -8,7 +8,7 @@ import { Categories } from "../../component/Categories/Categories";
 import { Skeleton } from "../../component/PizzaBlock/Skeleton";
 import { PizzaBlock } from "../../component/PizzaBlock/PizzaBlock";
 
-export const Home = () => {
+export const Home = ({ searchValue }) => {
     const [pizzas, setPizzas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,20 +23,21 @@ export const Home = () => {
         const sortBy = sortType.properties.replace("-", "");
         const order = sortType.properties.includes("-") ? "desc" : "asc";
         const category = categoryId > 0 ? `category=${categoryId}` : "";
+        const search = searchValue ? `&search=${searchValue}` : "";
 
         setIsLoading(true);
         axios
             .get(
-                `https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`
+                `https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}${search}`
             )
             .then((response) => {
                 setTimeout(() => {
                     setPizzas(response.data);
                     setIsLoading(false);
-                }, 3500);
+                }, 1000);
             });
         window.scrollTo(0, 0);
-    }, [categoryId, sortType]);
+    }, [categoryId, sortType, searchValue]);
 
     return (
         <div className={styles.Home} onClick={() => setOpen(false)}>
@@ -53,7 +54,9 @@ export const Home = () => {
             <div className={styles["content-page"]}>
                 {isLoading
                     ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
-                    : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
+                    : pizzas
+                        //   .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
+                          .map((item) => <PizzaBlock key={item.id} {...item} />)}
             </div>
         </div>
     );
