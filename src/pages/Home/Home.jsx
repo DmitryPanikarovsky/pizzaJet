@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 import styles from "./Home.module.scss";
@@ -7,9 +7,12 @@ import { Sorting } from "../../component/Sorting/Sorting";
 import { Categories } from "../../component/Categories/Categories";
 import { Skeleton } from "../../component/PizzaBlock/Skeleton";
 import { PizzaBlock } from "../../component/PizzaBlock/PizzaBlock";
-import { Pagination } from '../../component/Pagination/Pagination'
+import { Pagination } from "../../component/Pagination/Pagination";
+import { SearchContext } from '../../App'
 
-export const Home = ({ searchValue }) => {
+export const Home = () => {
+    const { searchValue } = useContext(SearchContext);
+
     const [pizzas, setPizzas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -55,10 +58,10 @@ export const Home = ({ searchValue }) => {
             <h2 className={styles.heading}>Все пиццы</h2>
             <div className={styles["content-page"]}>
                 {isLoading
-                    ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
+                    ? [...new Array(4)].map((_, index) => <Skeleton key={index} />)
                     : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
             </div>
-            <Pagination onPageChange={number => setCurrentPage(number)} />
+            <Pagination onPageChange={(number) => setCurrentPage(number)} />
         </div>
     );
 };

@@ -24,7 +24,7 @@ export const Header = ({ searchValue, setSearchValue }) => {
                         </div>
                     </Link>
                     <div className={styles["header__right"]}>
-                        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+                        <Search />
                         <Link to={"/cart"}>
                             <div className={styles["button-cart"]}>
                                 <div className={styles["button-cart__price"]}>
