@@ -26,11 +26,12 @@
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
-        color: #5c5c5c;
+        color: #181818;
         border: 1px solid #a6a6a6;
         border-radius: 27px;
         padding: 15px 17px 15px 50px;
         background: #ffffff00;
+        font-family: 'Jetbrains Mono', sans-serif;
         transition: all .3s;
 
         &:active,
@@ -41,15 +42,8 @@
             outline-offset: 0;
         }
 
-        &:-webkit-autofill,
-        &:-webkit-autofill:hover,
-        &:-webkit-autofill:focus {
-            -webkit-background-clip: #fff;
-            transition: background-color 5000s ease-in-out 0s;
-        }
-
         &::placeholder {
-            color: #000;
+            color: #a6a6a6;
         }
     }
 }
