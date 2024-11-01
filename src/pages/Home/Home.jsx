@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../../App";
 import axios from "axios";
 
 import styles from "./Home.module.scss";
@@ -8,21 +9,16 @@ import { Categories } from "../../component/Categories/Categories";
 import { Skeleton } from "../../component/PizzaBlock/Skeleton";
 import { PizzaBlock } from "../../component/PizzaBlock/PizzaBlock";
 import { Pagination } from "../../component/Pagination/Pagination";
-import { SearchContext } from '../../App'
 
 export const Home = () => {
     const { searchValue } = useContext(SearchContext);
 
     const [pizzas, setPizzas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     const [open, setOpen] = useState(false);
     const [categoryId, setCategoryId] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-    const [sortType, setSortType] = useState({
-        name: "популярности",
-        properties: "rating",
-    });
+    const [sortType, setSortType] = useState({ name: "популярности", properties: "rating" });
 
     useEffect(() => {
         const sortBy = sortType.properties.replace("-", "");
@@ -33,7 +29,7 @@ export const Home = () => {
         setIsLoading(true);
         axios
             .get(
-                `https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+                `https://66f2d5e071c84d805876ef77.mockapi.io/pizzas?page=${currentPage}&limit=5&${category}&sortBy=${sortBy}&order=${order}${search}`
             )
             .then((response) => {
                 setTimeout(() => {
@@ -58,7 +54,7 @@ export const Home = () => {
             <h2 className={styles.heading}>Все пиццы</h2>
             <div className={styles["content-page"]}>
                 {isLoading
-                    ? [...new Array(4)].map((_, index) => <Skeleton key={index} />)
+                    ? [...new Array(5)].map((_, index) => <Skeleton key={index} />)
                     : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
             </div>
             <Pagination onPageChange={(number) => setCurrentPage(number)} />

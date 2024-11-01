@@ -17,7 +17,7 @@ export const Sorting = ({ value, onChangeSort, openPopup, setOpenPopup }) => {
     return (
         <div className={styles.sorting}>
             <div className={styles["sorting__label"]}>
-                <img src="./img/vector-sort.svg" alt="стрелочка" className={openPopup && styles.active} />
+                <img src="./img/vector-sort.svg" alt="стрелочка" className={openPopup ? styles.active : undefined} />
                 <div>Сортировка по:</div>
                 <span onClick={setOpenPopup}>{value.name}</span>
             </div>
