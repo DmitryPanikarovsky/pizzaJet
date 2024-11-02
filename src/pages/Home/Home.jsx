@@ -13,17 +13,14 @@ import { Pagination } from "../../component/Pagination/Pagination";
 import { setCategoryId } from "../../redux/slices/filterSlice";
 
 export const Home = () => {
-    const categoryId = useSelector((state) => state.filterReducer.categoryId);
     const dispatch = useDispatch();
+    const { categoryId, sortType} = useSelector((state) => state.filterReducer);
 
-    console.log(categoryId);
-
-    const { searchValue } = useContext(SearchContext);
+    const { searchValue } = useContext(SearchContext);  
     const [pizzas, setPizzas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [open, setOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [sortType, setSortType] = useState({ name: "популярности", properties: "rating" });
 
     useEffect(() => {
         const sortBy = sortType.properties.replace("-", "");
@@ -39,7 +36,7 @@ export const Home = () => {
             setIsLoading(false);
         });
         window.scrollTo(0, 0);
-    }, [categoryId, sortType, searchValue, currentPage]);
+    }, [categoryId, sortType.properties, searchValue, currentPage]);
 
     const onClickCategory = (id) => {
         dispatch(setCategoryId(id));
@@ -49,8 +46,6 @@ export const Home = () => {
         <div className={styles.Home} onClick={() => setOpen(false)}>
             <div className={styles["content-top"]} onClick={(e) => e.stopPropagation()}>
                 <Sorting
-                    sortType={sortType}
-                    onChangeSort={(i) => setSortType(i)}
                     openPopup={open}
                     setOpenPopup={() => setOpen(!open)}
                 />

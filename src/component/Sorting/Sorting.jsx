@@ -1,25 +1,34 @@
 import React from "react";
 import styles from "./Sorting.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { setSortType } from "../../redux/slices/filterSlice";
 
-export const Sorting = ({ sortType, onChangeSort, openPopup, setOpenPopup }) => {
-    const sortItem = [
-        { name: "популярности", properties: "rating" },
-        { name: "цене (дешевле)", properties: "price" },
-        { name: "цене (дороже)", properties: "-price" },
-        { name: "алфавиту", properties: "title" },
-    ];
+const sortItem = [
+    { name: "популярности", properties: "rating" },
+    { name: "цене (дешевле)", properties: "price" },
+    { name: "цене (дороже)", properties: "-price" },
+    { name: "алфавиту", properties: "title" },
+];
 
-    const onClickSortItem = (index) => {
-        onChangeSort(index);
+export const Sorting = ({ openPopup, setOpenPopup }) => {
+    const dispatch = useDispatch();
+    const sort = useSelector((state) => state.filterReducer.sortType);
+
+    const onClickSortItem = (object) => {
+        dispatch(setSortType(object));
         setOpenPopup();
     };
 
     return (
         <div className={styles.sorting}>
             <div className={styles["sorting__label"]}>
-                <img src="./img/vector-sort.svg" alt="стрелочка" className={openPopup ? styles.active : undefined} />
+                <img
+                    src="./img/vector-sort.svg"
+                    alt="стрелочка"
+                    className={openPopup ? styles.active : undefined}
+                />
                 <div>Сортировка по:</div>
-                <span onClick={setOpenPopup}>{sortType.name}</span>
+                <span onClick={setOpenPopup}>{sort.name}</span>
             </div>
             {openPopup && (
                 <div className={styles["sorting__popup"]}>
@@ -28,7 +37,7 @@ export const Sorting = ({ sortType, onChangeSort, openPopup, setOpenPopup }) => 
                             <li
                                 key={index}
                                 onClick={() => onClickSortItem(object)}
-                                className={sortType.properties === object.properties ? styles.active : ""}
+                                className={sort.properties === object.properties ? styles.active : ""}
                             >
                                 {object.name}
                             </li>
