@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Sorting.module.scss";
 
-export const Sorting = ({ value, onChangeSort, openPopup, setOpenPopup }) => {
+export const Sorting = ({ sortType, onChangeSort, openPopup, setOpenPopup }) => {
     const sortItem = [
         { name: "популярности", properties: "rating" },
         { name: "цене (дешевле)", properties: "price" },
@@ -19,7 +19,7 @@ export const Sorting = ({ value, onChangeSort, openPopup, setOpenPopup }) => {
             <div className={styles["sorting__label"]}>
                 <img src="./img/vector-sort.svg" alt="стрелочка" className={openPopup ? styles.active : undefined} />
                 <div>Сортировка по:</div>
-                <span onClick={setOpenPopup}>{value.name}</span>
+                <span onClick={setOpenPopup}>{sortType.name}</span>
             </div>
             {openPopup && (
                 <div className={styles["sorting__popup"]}>
@@ -28,7 +28,7 @@ export const Sorting = ({ value, onChangeSort, openPopup, setOpenPopup }) => {
                             <li
                                 key={index}
                                 onClick={() => onClickSortItem(object)}
-                                className={value.properties === object.properties ? styles.active : ""}
+                                className={sortType.properties === object.properties ? styles.active : ""}
                             >
                                 {object.name}
                             </li>
