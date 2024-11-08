@@ -14,7 +14,7 @@ import { PizzaBlock } from "../../component/PizzaBlock/PizzaBlock";
 import { Pagination } from "../../component/Pagination/Pagination";
 
 export const Home = () => {
-    const { categoryId, sortType, pageCount } = useSelector((state) => state.filterReducer);
+    const { categoryId, sortType, currentPage } = useSelector((state) => state.filterReducer);
     const dispatch = useDispatch();
 
     const { searchValue } = useContext(SearchContext);
@@ -32,7 +32,7 @@ export const Home = () => {
         const category = categoryId > 0 ? `category=${categoryId}` : "";
         const search = searchValue ? `&search=${searchValue}` : "";
 
-        const data = `?page=${pageCount}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`;
+        const data = `?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`;
 
         setIsLoading(true);
         axios.get(`https://66f2d5e071c84d805876ef77.mockapi.io/pizzas${data}`).then((response) => {
@@ -40,7 +40,7 @@ export const Home = () => {
             setIsLoading(false);
         });
         window.scrollTo(0, 0);
-    }, [categoryId, sortType.properties, searchValue, pageCount]);
+    }, [categoryId, sortType.properties, searchValue, currentPage]);
 
     return (
         <div className={styles.Home} onClick={() => setOpen(false)}>
