@@ -23,7 +23,7 @@
     }
 
     .input {
-        width: 250px;
+        width: 300px;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -37,7 +37,6 @@
 
         &:active,
         &:focus {
-            width: 300px;
             border: 1px solid #FE5F1E;
             outline: 0;
             outline-offset: 0;

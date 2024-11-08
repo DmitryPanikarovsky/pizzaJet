@@ -28,7 +28,7 @@ export const Home = () => {
         const category = categoryId > 0 ? `category=${categoryId}` : "";
         const search = searchValue ? `&search=${searchValue}` : "";
 
-        const data = `?page=${currentPage}&limit=5&${category}&sortBy=${sortBy}&order=${order}${search}`;
+        const data = `?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`;
 
         setIsLoading(true);
         axios.get(`https://66f2d5e071c84d805876ef77.mockapi.io/pizzas${data}`).then((response) => {
@@ -47,11 +47,13 @@ export const Home = () => {
             </div>
             <h2 className={styles.heading}>Все пиццы</h2>
             <div className={styles["content-page"]}>
-                {isLoading
-                    ? [...new Array(5)].map((_, index) => <Skeleton key={index} />)
-                    : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
+                <div className={styles.content}>
+                    {isLoading
+                        ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
+                        : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
+                </div>
+                <Pagination onPageChange={(number) => setCurrentPage(number)} />
             </div>
-            <Pagination onPageChange={(number) => setCurrentPage(number)} />
         </div>
     );
 };
