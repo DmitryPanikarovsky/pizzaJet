@@ -1,15 +1,17 @@
 .App {
-    max-width: 1360px;
+    max-width: 1400px;
     min-height: 50vh;
-    background: rgba(255, 255, 255, 0.667);
-    margin: 55px auto; 
+    background: rgb(255, 241, 207);
+    margin: 0 auto; 
     overflow: hidden;
-    border-radius: 30px;
-    border: 2px solid #a6a6a6bd;
+    border-radius: 50px;
+    border: 20px solid #ffa348c2;
 
     .content {
         padding: 50px 0 50px;
         height: 100%;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
     }
 }
 

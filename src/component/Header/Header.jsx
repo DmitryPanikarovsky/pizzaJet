@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Container } from "../Container/Container";
 import styles from "./Header.module.scss";
-import { Search } from '../Search/Search'
+import { Search } from "../Search/Search";
 
 export const Header = ({ searchValue, setSearchValue }) => {
     return (
@@ -23,27 +23,23 @@ export const Header = ({ searchValue, setSearchValue }) => {
                             </div>
                         </div>
                     </Link>
-                    <div className={styles["header__right"]}>
-                        <Search />
-                        <Link to={"/cart"}>
-                            <div className={styles["button-cart"]}>
-                                <div className={styles["button-cart__price"]}>
-                                    520 <span>₽</span>
-                                </div>
-                                <div className={styles["button-cart__delimiter"]}></div>
-                                <div className={styles["button-cart__total"]}>
-                                    {/* <img src="./img/cart-icon.svg" alt="Иконка корзины" /> */}
-                                    <img
-                                        width="21"
-                                        height="21"
-                                        src="https://img.icons8.com/ios-filled/50/FD7E14/wicker-basket--v1.png"
-                                        alt="wicker-basket--v1"
-                                    />
-                                    <span>3</span>
-                                </div>
+                    <Link to={"/cart"}>
+                        <div className={styles["button-cart"]}>
+                            <div className={styles["button-cart__price"]}>
+                                520 <span>₽</span>
                             </div>
-                        </Link>
-                    </div>
+                            <div className={styles["button-cart__delimiter"]}></div>
+                            <div className={styles["button-cart__total"]}>
+                                <img
+                                    width="21"
+                                    height="21"
+                                    src="https://img.icons8.com/ios-filled/50/FD7E14/wicker-basket--v1.png"
+                                    alt="wicker-basket--v1"
+                                />
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </Link>
                 </div>
             </Container>
         </header>

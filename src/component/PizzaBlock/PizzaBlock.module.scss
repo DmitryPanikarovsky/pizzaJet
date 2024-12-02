@@ -21,29 +21,36 @@
     &__selector {
         margin-top: 22px;
         width: 100%;
-        // background: #fe5d1e22;
         background: #ffde8c92;
+        border: 1px solid #000;
         border-radius: 10px;
         padding: 6px;
         display: flex;
         flex-direction: column;
         gap: 7px;
-
+        
+        
         ul {
             display: flex;
+            align-items: center;
             gap: 6px;
             
             li {
+                height: 39px;
                 flex: 1;
-                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 font-weight: 700;
                 font-size: 14px;
-                padding: 7px 0;
                 cursor: pointer;
-    
+                transition: all .3s;
+                
                 &.active {
+                    font-size: 16px;
                     background: #fe5d1e28;
                     border-radius: 5px;
+                    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
                 }
             }
         }
@@ -72,13 +79,13 @@
 
         span {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 18px;
             color: #eb5a1e;
         }
 
         b {
-            width: 25px;
-            height: 21px;
+            width: 24px;
+            height: 24px;
             display: flex;
             justify-content: center;
             align-items: center;

@@ -3,7 +3,7 @@ import styles from "./Categories.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../../redux/slices/filterSlice";
 
-export const Categories = ({ value, onClickCategory }) => {
+export const Categories = () => {
     const dispatch = useDispatch();
     const categoryId = useSelector((state) => state.filterReducer.categoryId);
 
@@ -17,7 +17,7 @@ export const Categories = ({ value, onClickCategory }) => {
                     onClick={() => dispatch(setCategoryId(i))}
                     className={categoryId === i ? styles.active : ""}
                 >
-                    {categoryName}
+                    <span>{categoryName}</span>
                 </li>
             ))}
         </ul>

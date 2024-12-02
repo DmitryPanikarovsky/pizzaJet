@@ -1,7 +1,6 @@
 .search {
     position: relative;
     
-
     .search-pic {
         position: absolute;
         top: 14px;
@@ -9,20 +8,21 @@
         width: 26px;
         height: 26px;
     }
-
+    
     .remove {
         position: absolute;
         top: 14px;
         right: 17px;
         cursor: pointer;
-
+        
         img {
             width: 27px;
             height: 27px;
         }
     }
-
+    
     .input {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
         width: 300px;
         font-size: 18px;
         font-style: normal;
@@ -37,7 +37,6 @@
 
         &:active,
         &:focus {
-            border: 1px solid #FE5F1E;
             outline: 0;
             outline-offset: 0;
         }

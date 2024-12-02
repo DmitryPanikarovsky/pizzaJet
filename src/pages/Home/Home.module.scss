@@ -10,9 +10,15 @@
             align-items: flex-start;
         }
     }
+
+    .content-header {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     
     .heading {
-        margin-top: 32px;
         font-weight: 700;
         font-size: 42px;
     }
@@ -24,6 +30,7 @@
         margin-top: 45px;
 
         .content {
+            min-height: 475px;
             display: grid;
             grid-template-columns: repeat(auto-fill, 280px);
             grid-template-rows: repeat(1, 1fr);
