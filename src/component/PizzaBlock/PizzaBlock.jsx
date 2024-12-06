@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 import styles from "./PizzaBlock.module.scss";
 
 export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
@@ -19,14 +19,22 @@ export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
             <div className={styles["pizza-block__selector"]}>
                 <ul>
                     {types.map((typeId) => (
-                        <li key={typeId} onClick={() => setActiveType(typeId)} className={activeType === typeId ? styles.active : ""}>
+                        <li
+                            key={typeId}
+                            onClick={() => setActiveType(typeId)}
+                            className={activeType === typeId ? styles.active : ""}
+                        >
                             {typeNames[typeId]}
                         </li>
                     ))}
                 </ul>
                 <ul>
                     {sizes.map((size, index) => (
-                        <li key={index} onClick={() => setActiveSize(index)} className={activeSize === index ? styles.active : ""}>
+                        <li
+                            key={index}
+                            onClick={() => setActiveSize(index)}
+                            className={activeSize === index ? styles.active : ""}
+                        >
                             {size} см.
                         </li>
                     ))}

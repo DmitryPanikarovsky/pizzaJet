@@ -14,9 +14,9 @@
         cursor: pointer;
         transition: all .3s;
 
-        &:first-child, &:last-child {
-            display: none;
-        }
+        // &:first-child, &:last-child {
+        //     display: none;
+        // }
 
         &:hover {
             border: 2px solid #fe5f1e;
