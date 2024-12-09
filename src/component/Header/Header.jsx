@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { Container } from "../Container/Container";
 import styles from "./Header.module.scss";
-import { Search } from "../Search/Search";
+import { useSelector } from "react-redux";
 
-export const Header = ({ searchValue, setSearchValue }) => {
+export const Header = () => {
+    const { totalPrice, cartPizzas } = useSelector((state) => state.cartReducer);
+
+    const totalCount = cartPizzas.reduce((sum, item) => sum + item.count, 0);
+
+
     return (
         <header className={styles.header}>
             <Container>
@@ -26,7 +31,8 @@ export const Header = ({ searchValue, setSearchValue }) => {
                     <Link to={"/cart"}>
                         <div className={styles["button-cart"]}>
                             <div className={styles["button-cart__price"]}>
-                                520 <span>₽</span>
+                                {totalPrice}
+                                <span>₽</span>
                             </div>
                             <div className={styles["button-cart__delimiter"]}></div>
                             <div className={styles["button-cart__total"]}>
@@ -36,7 +42,7 @@ export const Header = ({ searchValue, setSearchValue }) => {
                                     src="https://img.icons8.com/ios-filled/50/FD7E14/wicker-basket--v1.png"
                                     alt="wicker-basket--v1"
                                 />
-                                <span>3</span>
+                                <span>{totalCount}</span>
                             </div>
                         </div>
                     </Link>

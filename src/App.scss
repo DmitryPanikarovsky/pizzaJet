@@ -1,11 +1,10 @@
 .App {
     max-width: 1400px;
-    min-height: 50vh;
-    background: rgb(255, 241, 207);
+    background: rgb(255, 234, 185);
     margin: 0 auto; 
     overflow: hidden;
     border-radius: 50px;
-    border: 20px solid #ffa348c2;
+    box-shadow: rgba(247, 247, 247, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 2px;
 
     .content {
         padding: 50px 0 50px;

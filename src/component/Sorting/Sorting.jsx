@@ -22,21 +22,34 @@ export const Sorting = () => {
 
     const onClickSortItem = (object) => {
         dispatch(setSortType(object));
-        setOpen(false);
     };
 
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (event.target !== sortRef.current) {
                 setOpen(false);
+                console.log("Нажал закрыть");
+                document.body.removeEventListener("click", handleClickOutside);
             }
-
         }
 
-        document.body.addEventListener('click', handleClickOutside);
+        if (open) {
+            document.body.addEventListener('click', handleClickOutside);
+        }
+    }, [open]);
 
-        return () => document.body.removeEventListener('click', handleClickOutside);
-    }, []);
+    // useEffect(() => {
+    //     const handleClickOutside = (event) => {
+    //         if (event.target !== sortRef.current) {
+    //             setOpen(false);
+    //             console.log("Нажал закрыть");
+    //         }
+    //     };
+
+    //     document.body.addEventListener("click", handleClickOutside);
+
+    //     return () => document.body.removeEventListener("click", handleClickOutside); 
+    // }, []);
 
     return (
         <div className={styles.sorting}>

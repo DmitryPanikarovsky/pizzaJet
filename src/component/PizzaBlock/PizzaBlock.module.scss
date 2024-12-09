@@ -69,18 +69,22 @@
     }
 
     .button {
+        height: 47px;
+        padding: 0 8px;
         display: flex;
-        gap: 7px;
-        padding: 10px 14px;
+        align-items: center;
+        justify-content: center;
         border: 2px solid #eb5a1e;
         border-radius: 27px;
         cursor: pointer;
         transition: all .2s ease;
+        user-select: none;
 
         span {
             font-weight: 700;
             font-size: 18px;
             color: #eb5a1e;
+            margin: 0 5px;
         }
 
         b {
@@ -95,13 +99,41 @@
             font-size: 13px;
             color: #fff;
         }
-
-        &:hover {
-            transform: scale(1.05);
-        }
         
         &:active {
             transform: scale(1);
+        }
+
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            span {
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+
+        .minus,
+        .plus {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            // border: 2px solid #fe5f1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+
+            &:active {
+                transform: scale(1);
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./EmptyCart.module.scss";
+import { Link } from 'react-router-dom'
 
 export const EmptyCart = () => {
     return (
@@ -12,7 +13,9 @@ export const EmptyCart = () => {
                     Для того, чтобы заказать пиццу, перейди на главную страницу.
                 </span>
                 <img className={styles["emptyCart-img"]} width={300} src="./img/emptyCart.png" alt="пустая корзина" />
-                <button className={styles.back}>Иди и купи уже</button>
+                <Link to={"/"}>
+                    <button className={styles.back}>Иди и купи уже</button>
+                </Link>
             </div>
         </div>
     );

@@ -23,6 +23,11 @@ export const filterSlice = createSlice({
         setCurrentPage(state, action) {
             state.currentPage = action.payload;
         },
+        // setFilters(state, action) {
+        //     state.currentPage = action.payload.currentPage;
+        //     state.categoryId = action.payload.categoryId;
+        //     state.sort = action.payload.sort;
+        // }
     }
 });
 

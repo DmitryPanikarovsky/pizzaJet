@@ -1,15 +1,38 @@
 import { useState } from "react";
 import styles from "./PizzaBlock.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { addPizzasInCart, decreasePizzaCount } from "../../redux/slices/cartSlice";
 
-export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
+export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
+    const dispatch = useDispatch();
+    const cartItem = useSelector((state) => state.cartReducer.cartPizzas.find((obj) => obj.id === id));
+
     const [activeType, setActiveType] = useState(0);
     const [activeSize, setActiveSize] = useState(0);
-    const [count, setCount] = useState(0);
 
     const typeNames = ["тонкое", "традиционное"];
 
-    const addPizzaOnCart = () => {
-        setCount((count) => count + 1);
+    const addedCount = cartItem ? cartItem.count : 0;
+
+    const onClickAdd = () => {
+        const item = {
+            id,
+            title,
+            price,
+            imageUrl,
+            type: typeNames[activeType],
+            size: sizes[activeSize],
+        };
+
+        dispatch(addPizzasInCart(item));
+    };
+
+    const onClickPlus = () => {
+        dispatch(addPizzasInCart({ id }));
+    };
+
+    const onClickMinus = () => {
+        dispatch(decreasePizzaCount(id));
     };
 
     return (
@@ -22,7 +45,7 @@ export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
                         <li
                             key={typeId}
                             onClick={() => setActiveType(typeId)}
-                            className={activeType === typeId ? styles.active : ""}
+                            className={activeType === typeId || types.length === 1 ? styles.active : ""}
                         >
                             {typeNames[typeId]}
                         </li>
@@ -42,10 +65,20 @@ export const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
             </div>
             <div className={styles["pizza-block__bottom"]}>
                 <div className={styles["pizza-block__price"]}>от {price} ₽</div>
-                <div onClick={() => addPizzaOnCart()} className={styles.button}>
-                    <img src="./img/add.svg" alt="Добавить" />
-                    <span>Добавить</span>
-                    {count > 0 ? <b>{count}</b> : ""}
+                <div className={styles.button}>
+                    {addedCount > 0 ? (
+                        <div className={styles.counter}>
+                            <button onClick={() => onClickMinus()} className={styles.minus}>
+                                <img src="./img/minus.svg" alt="минус" />
+                            </button>
+                            <span>{cartItem.count}</span>
+                            <button onClick={() => onClickPlus()} className={styles.plus}>
+                                <img src="./img/plus.svg" alt="плюс" />
+                            </button>
+                        </div>
+                    ) : (
+                        <span onClick={() => onClickAdd()}>Добавить</span>
+                    )}
                 </div>
             </div>
         </div>
