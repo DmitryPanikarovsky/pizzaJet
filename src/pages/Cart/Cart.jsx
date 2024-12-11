@@ -4,10 +4,12 @@ import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "../../component/CartItem/CartItem";
 import { EmptyCart } from "../EmptyCart/EmptyCart";
-import { cleanCart } from '../../redux/slices/cartSlice';
+import { cleanCart } from "../../redux/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { totalPrice, cartPizzas } = useSelector((state) => state.cartReducer);
 
@@ -17,7 +19,10 @@ export const Cart = () => {
         if (window.confirm("Очистить корзину?")) {
             dispatch(cleanCart());
         }
-    }
+        setTimeout(() => {
+            navigate("/");
+        }, 1500);
+    };
 
     return cartPizzas.length > 0 ? (
         <div className={styles.сart}>

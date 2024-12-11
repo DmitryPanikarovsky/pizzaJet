@@ -26,8 +26,9 @@ export const cartSlice = createSlice({
 
             if (findItem) {
                 findItem.count--;
+                state.totalPrice = state.totalPrice - findItem.price;
             }
-            
+
             if (findItem.count === 0) {
                 state.cartPizzas = state.cartPizzas.filter((obj) => obj.id !== action.payload);
             }
@@ -35,6 +36,7 @@ export const cartSlice = createSlice({
 
         removePizzasOutCart(state, action) {
             state.cartPizzas = state.cartPizzas.filter((obj) => obj.id !== action.payload);
+            state.totalPrice = state.cartPizzas.reduce((sum, obj) => obj.price * obj.count + sum, 0);
         },
         cleanCart(state) {
             state.cartPizzas = [];
@@ -44,4 +46,5 @@ export const cartSlice = createSlice({
 });
 
 export const { addPizzasInCart, decreasePizzaCount, removePizzasOutCart, cleanCart } = cartSlice.actions;
+
 export default cartSlice.reducer;

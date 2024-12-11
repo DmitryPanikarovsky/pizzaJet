@@ -21,7 +21,7 @@
     &__selector {
         margin-top: 22px;
         width: 100%;
-        background: #ffde8c92;
+        background: #ffd2615a;
         box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 2px;
         border-radius: 10px;
         padding: 6px;
@@ -69,6 +69,7 @@
     }
 
     .button {
+        width: 116px;
         height: 47px;
         padding: 0 8px;
         display: flex;
@@ -84,7 +85,6 @@
             font-weight: 700;
             font-size: 18px;
             color: #eb5a1e;
-            margin: 0 5px;
         }
 
         b {
@@ -105,9 +105,10 @@
         }
 
         .counter {
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
 
             span {
                 font-weight: 700;
@@ -120,7 +121,6 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            // border: 2px solid #fe5f1e;
             display: flex;
             justify-content: center;
             align-items: center;

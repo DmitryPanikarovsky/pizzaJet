@@ -1,14 +1,14 @@
-import { useState } from "react";
 import styles from "./PizzaBlock.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { addPizzasInCart, decreasePizzaCount } from "../../redux/slices/cartSlice";
+import { useState } from "react";
 
 export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
     const dispatch = useDispatch();
     const cartItem = useSelector((state) => state.cartReducer.cartPizzas.find((obj) => obj.id === id));
 
-    const [activeType, setActiveType] = useState(0);
-    const [activeSize, setActiveSize] = useState(0);
+    const [activeType, setActiveType] = useState();
+    const [activeSize, setActiveSize] = useState();
 
     const typeNames = ["тонкое", "традиционное"];
 
@@ -24,16 +24,16 @@ export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
             size: sizes[activeSize],
         };
 
-        dispatch(addPizzasInCart(item));
+        if (activeSize === undefined && activeSize === undefined) {
+            window.alert("Выберите размер и тесто");
+        } else {
+            dispatch(addPizzasInCart(item));
+        }
     };
 
-    const onClickPlus = () => {
-        dispatch(addPizzasInCart({ id }));
-    };
+    const onClickPlus = () => dispatch(addPizzasInCart({ id }));
 
-    const onClickMinus = () => {
-        dispatch(decreasePizzaCount(id));
-    };
+    const onClickMinus = () => dispatch(decreasePizzaCount(id));
 
     return (
         <div className={styles["pizza-block"]}>
@@ -45,7 +45,7 @@ export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
                         <li
                             key={typeId}
                             onClick={() => setActiveType(typeId)}
-                            className={activeType === typeId || types.length === 1 ? styles.active : ""}
+                            className={activeType === typeId ? styles.active : ""}
                         >
                             {typeNames[typeId]}
                         </li>

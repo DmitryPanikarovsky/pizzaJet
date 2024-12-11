@@ -20,15 +20,12 @@ export const Sorting = () => {
 
     const [open, setOpen] = useState(false);
 
-    const onClickSortItem = (object) => {
-        dispatch(setSortType(object));
-    };
+    const onClickSortItem = (object) => dispatch(setSortType(object));
 
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (event.target !== sortRef.current) {
                 setOpen(false);
-                console.log("Нажал закрыть");
                 document.body.removeEventListener("click", handleClickOutside);
             }
         }
@@ -37,19 +34,6 @@ export const Sorting = () => {
             document.body.addEventListener('click', handleClickOutside);
         }
     }, [open]);
-
-    // useEffect(() => {
-    //     const handleClickOutside = (event) => {
-    //         if (event.target !== sortRef.current) {
-    //             setOpen(false);
-    //             console.log("Нажал закрыть");
-    //         }
-    //     };
-
-    //     document.body.addEventListener("click", handleClickOutside);
-
-    //     return () => document.body.removeEventListener("click", handleClickOutside); 
-    // }, []);
 
     return (
         <div className={styles.sorting}>

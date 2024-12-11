@@ -3,20 +3,19 @@ import styles from "./CartItem.module.scss";
 import { addPizzasInCart, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
 
 export const CartItem = ({ id, title, price, count, imageUrl, type, size }) => {
+
     const dispatch = useDispatch();
 
-    const onClickPlus = () => {
-        dispatch(addPizzasInCart({ id }));
-    };
+    const onClickPlus = () => dispatch(addPizzasInCart({ id }));
 
-    const onClickMinus = () => {
-        dispatch(decreasePizzaCount(id));
-    };
+    const onClickMinus = () => dispatch(decreasePizzaCount(id));
 
     const removeItemCart = () => {
-        if (window.confirm("Ты правда хочешь удалить эту вкуснейшую пиццу из списка?")) {
-            dispatch(removePizzasOutCart(id));
-        }
+        setTimeout(() => {
+            if (window.confirm("Ты правда хочешь удалить эту вкуснейшую пиццу из списка?")) {
+                dispatch(removePizzasOutCart(id));
+            }
+        }, 200);
     };
 
     return (
@@ -25,7 +24,9 @@ export const CartItem = ({ id, title, price, count, imageUrl, type, size }) => {
                 <img width={80} src={imageUrl} alt="пицца" />
                 <div className={styles.description}>
                     <h4>{title}</h4>
-                    <span>{type} тесто, {size}см</span>
+                    <span>
+                        {type} тесто, {size}см.
+                    </span>
                 </div>
             </div>
             <div className={styles["item-right"]}>
