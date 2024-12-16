@@ -1,6 +1,6 @@
+import { addPizzasInCart, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import styles from "./CartItem.module.scss";
-import { addPizzasInCart, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
 
 export const CartItem = ({ id, title, price, count, imageUrl, type, size }) => {
 
@@ -11,11 +11,7 @@ export const CartItem = ({ id, title, price, count, imageUrl, type, size }) => {
     const onClickMinus = () => dispatch(decreasePizzaCount(id));
 
     const removeItemCart = () => {
-        setTimeout(() => {
-            if (window.confirm("Ты правда хочешь удалить эту вкуснейшую пиццу из списка?")) {
-                dispatch(removePizzasOutCart(id));
-            }
-        }, 200);
+        dispatch(removePizzasOutCart(id));
     };
 
     return (

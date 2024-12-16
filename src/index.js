@@ -12,6 +12,11 @@ root.render(
     <React.StrictMode>
         <Provider store={store}>
             <Routing>
+                <div className='reactPizza'>
+                    <span>React</span>
+                    <span>Pizza</span>
+                    <span>(remastered)</span>
+                </div>
                 <App />
             </Routing>
         </Provider>

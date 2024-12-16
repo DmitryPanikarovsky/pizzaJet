@@ -28,7 +28,7 @@
         display: flex;
         flex-direction: column;
         gap: 7px;
-        
+        user-select: none;
         
         ul {
             display: flex;
@@ -48,6 +48,7 @@
                 
                 &.active {
                     font-size: 16px;
+                    font-weight: 900;
                     background: #fe5d1e28;
                     border-radius: 5px;
                     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
@@ -87,23 +88,6 @@
             color: #eb5a1e;
         }
 
-        b {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background: #eb5a1e;
-            font-weight: 700;
-            font-size: 13px;
-            color: #fff;
-        }
-        
-        &:active {
-            transform: scale(1);
-        }
-
         .counter {
             width: 100%;
             display: flex;
@@ -111,8 +95,8 @@
             justify-content: space-between;
 
             span {
-                font-weight: 700;
-                font-size: 20px;
+                font-weight: 800;
+                font-size: 22px;
             }
         }
 
@@ -120,6 +104,7 @@
         .plus {
             width: 30px;
             height: 30px;
+            border: 1px solid #eb5a1e;
             border-radius: 50%;
             display: flex;
             justify-content: center;

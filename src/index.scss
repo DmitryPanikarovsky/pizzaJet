@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #eeb35bd6;
+    background: linear-gradient(#8c4a0f, #201304);
     min-height: 100vh;
     padding: 38px 15px;
 }
@@ -26,3 +26,27 @@ a {
     text-decoration: none;
 }
 
+.reactPizza {
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    position: absolute;
+    z-index: -1;
+    top: 87px;
+    left: 50px;
+    line-height: 1;
+    filter: blur(2px);
+    
+    :first-child {
+        color: #fff;
+    }
+    
+    :nth-child(2) {
+        color: #da7e15;
+    }
+
+    :last-child {
+        font-size: 25px;
+        color: #002d96;
+    }
+}

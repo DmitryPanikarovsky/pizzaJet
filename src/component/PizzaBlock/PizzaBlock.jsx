@@ -7,8 +7,8 @@ export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
     const dispatch = useDispatch();
     const cartItem = useSelector((state) => state.cartReducer.cartPizzas.find((obj) => obj.id === id));
 
-    const [activeType, setActiveType] = useState();
-    const [activeSize, setActiveSize] = useState();
+    const [activeType, setActiveType] = useState(0);
+    const [activeSize, setActiveSize] = useState(0);
 
     const typeNames = ["тонкое", "традиционное"];
 
