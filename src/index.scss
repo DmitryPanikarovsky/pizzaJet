@@ -6,9 +6,9 @@
 }
 
 body {
-    background: linear-gradient(#8c4a0f, #201304);
+    background: url('../public/img/wallpaperPizza3.jpg') center center/cover no-repeat;
     min-height: 100vh;
-    padding: 38px 15px;
+    padding: 30px 15px;
 }
 
 ul>li {
@@ -30,7 +30,7 @@ a {
     display: flex;
     flex-direction: column;
     font-size: 50px;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     top: 87px;
     left: 50px;
@@ -38,7 +38,7 @@ a {
     filter: blur(2px);
     
     :first-child {
-        color: #fff;
+        color: #da7e15;
     }
     
     :nth-child(2) {

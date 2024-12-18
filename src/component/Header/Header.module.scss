@@ -1,5 +1,5 @@
 .header {
-    padding: 50px 0 50px;
+    padding: 40px 0;
     border-bottom: 1px solid #a6a6a6;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
@@ -14,11 +14,6 @@
         display: flex;
         gap: 17px;
 
-        &__pic {
-            cursor: pointer;
-            width: 56px;
-        }
-
         &__title {
             font-weight: 800;
             font-size: 44px;
@@ -29,7 +24,7 @@
         &__subtitle {
             font-weight: 400;
             font-size: 16px;
-            color: #7B7B7B;
+            color: #5b5b5b;
             margin-top: -5px;
         }
     }

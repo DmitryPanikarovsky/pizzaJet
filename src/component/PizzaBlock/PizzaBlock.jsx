@@ -1,11 +1,12 @@
 import styles from "./PizzaBlock.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizzasInCart, decreasePizzaCount } from "../../redux/slices/cartSlice";
+import { addPizzasInCart, decreasePizzaCount, selectCartItemById } from "../../redux/slices/cartSlice";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
     const dispatch = useDispatch();
-    const cartItem = useSelector((state) => state.cartReducer.cartPizzas.find((obj) => obj.id === id));
+    const cartItem = useSelector(selectCartItemById(id));
 
     const [activeType, setActiveType] = useState(0);
     const [activeSize, setActiveSize] = useState(0);
@@ -37,7 +38,9 @@ export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
 
     return (
         <div className={styles["pizza-block"]}>
-            <img className={styles["pizza-block__image"]} src={imageUrl} alt="пицца" />
+            <Link to={`/pizza/${id}`}>
+                <img className={styles["pizza-block__image"]} src={imageUrl} alt="пицца" />
+            </Link>
             <h4 className={styles["pizza-block__title"]}>{title}</h4>
             <div className={styles["pizza-block__selector"]}>
                 <ul>
@@ -71,7 +74,9 @@ export const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
                             <button onClick={() => onClickMinus()} className={styles.minus}>
                                 <img src="./img/minus.svg" alt="минус" />
                             </button>
-                            <span>{cartItem.count}</span>
+                            <Link to={"/cart"}>
+                                <span>{cartItem.count}</span>
+                            </Link>
                             <button onClick={() => onClickPlus()} className={styles.plus}>
                                 <img src="./img/plus.svg" alt="плюс" />
                             </button>

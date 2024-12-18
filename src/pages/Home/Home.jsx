@@ -1,22 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import styles from "./Home.module.scss";
-import { useContext, useEffect } from "react";
-import { SearchContext } from "../../App";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentPage } from "../../redux/slices/filterSlice";
-import { fetchPizzas } from "../../redux/slices/pizzaSlice";
 import { Sorting, Categories, Search, Skeleton, Pagination, PizzaBlock } from "../../component/publicApi";
-import { ErrorPage } from "../ErrorPage/ErrorPage";
+import { selectFilter, setCurrentPage } from "../../redux/slices/filterSlice";
+import { fetchPizzas, selectPizzaData } from "../../redux/slices/pizzaSlice";
 import { categories } from "../../component/Categories/Categories";
+import { useDispatch, useSelector } from "react-redux";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
+import { useEffect } from "react";
+import styles from "./Home.module.scss";
 
 export const Home = () => {
     const dispatch = useDispatch();
 
-    const { categoryId, currentPage, sort } = useSelector((state) => state.filterReducer);
-    const pizzas = useSelector((state) => state.pizzaReducer.items);
-    const status = useSelector((state) => state.pizzaReducer.status);
-
-    const { searchValue } = useContext(SearchContext);
+    const { categoryId, currentPage, sort, searchValue } = useSelector(selectFilter);
+    const { items, status } = useSelector(selectPizzaData);
 
     const onChangePage = (page) => {
         dispatch(setCurrentPage(page));
@@ -44,23 +40,23 @@ export const Home = () => {
                 <Categories />
             </div>
             <div className={styles["content-header"]}>
-                <h2 className={styles.heading}>{categories[categoryId]} пиццы</h2>
+                <h2 className={styles.heading}>
+                    {categoryId === 0 ? `${categories[categoryId]} пиццы` : categories[categoryId]}
+                </h2>
                 <Search />
             </div>
-            {status === "error" ? (
-                <div className={styles["content-page"]}>
+            <div className={styles["content-page"]}>
+                {status === "error" ? (
                     <ErrorPage />
-                </div>
-            ) : (
-                <div className={styles["content-page"]}>
+                ) : (
                     <div className={styles.content}>
                         {status === "loading"
                             ? [...new Array(10)].map((_, index) => <Skeleton key={index} />)
-                            : pizzas.map((item) => <PizzaBlock key={item.id} {...item} />)}
+                            : items.map((item) => <PizzaBlock key={item.id} {...item} />)}
                     </div>
-                    <Pagination currentPage={currentPage} onPageChange={onChangePage} />
-                </div>
-            )}
+                )}
+            </div>
+            <Pagination currentPage={currentPage} onPageChange={onChangePage} />
         </div>
     );
 };

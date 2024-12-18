@@ -1,8 +1,19 @@
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .pizza-block {
     width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 
     &__image {
         width: 260px;
@@ -93,6 +104,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            animation-name: appear;
+            animation-duration: 700ms;
 
             span {
                 font-weight: 800;
@@ -122,3 +135,5 @@
         }
     }
 }
+
+

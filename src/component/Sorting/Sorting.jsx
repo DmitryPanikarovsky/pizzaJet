@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import styles from "./Sorting.module.scss";
-import { useDispatch, useSelector } from "react-redux";
 import { setSortType } from "../../redux/slices/filterSlice";
-import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./Sorting.module.scss";
+import React, { useState } from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
+import { selectFilter } from "../../redux/slices/filterSlice";
 
 export const sortItem = [
     { name: "популярности", sortProperty: "rating" },
@@ -14,7 +15,7 @@ export const sortItem = [
 
 export const Sorting = () => {
     const dispatch = useDispatch();
-    const sort = useSelector((state) => state.filterReducer.sort);
+    const { sort } = useSelector(selectFilter);
 
     const sortRef = useRef();
 
@@ -28,10 +29,10 @@ export const Sorting = () => {
                 setOpen(false);
                 document.body.removeEventListener("click", handleClickOutside);
             }
-        }
+        };
 
         if (open) {
-            document.body.addEventListener('click', handleClickOutside);
+            document.body.addEventListener("click", handleClickOutside);
         }
     }, [open]);
 

@@ -21,12 +21,12 @@
         cursor: pointer;
         
         &:hover {
-            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgb(254, 95, 30) 0px 0px 0px 1px;
+            box-shadow: rgb(254, 95, 30) 0px 0px 0px 1px;
             color: #fe5f1e;
         }
         
         &.active {
-            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgb(254, 95, 30) 0px 0px 0px 1px;
+            box-shadow: rgb(254, 95, 30) 0px 0px 0px 1px;
             color: #fe5f1e;
         }
     }
