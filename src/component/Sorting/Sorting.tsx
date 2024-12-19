@@ -29,7 +29,7 @@ export const Sorting = () => {
     const onClickSortItem = (object: SortListItem) => dispatch(setSortType(object));
 
     useEffect(() => {
-        const handleClickOutside = (event: any) => {
+        const handleClickOutside = (event: MouseEvent) => {
             if (event.target !== sortRef.current) {
                 setOpen(false);
                 document.body.removeEventListener("click", handleClickOutside);

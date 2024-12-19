@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useRef, useCallback, useState, FC } from "react";
+import { useRef, useCallback, useState, FC, ChangeEvent } from "react";
 import styles from "./Search.module.scss";
 import debounce from "lodash.debounce";
 import { setSearchValue } from "../../redux/slices/filterSlice";
@@ -23,7 +23,7 @@ export const Search: FC = () => {
         []
     );
 
-    const onChangeInput = (event: any) => {
+    const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
         updateSearchValue(event.target.value);
     };

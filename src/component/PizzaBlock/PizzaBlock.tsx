@@ -1,7 +1,7 @@
 import styles from "./PizzaBlock.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { addPizzasInCart, decreasePizzaCount, selectCartItemById } from "../../redux/slices/cartSlice";
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 type PizzaBlockProps = {
@@ -21,7 +21,6 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
     const [activeSize, setActiveSize] = useState<number>(0);
 
     const typeNames = ["тонкое", "традиционное"];
-
     const addedCount = cartItem ? cartItem.count : 0;
 
     const onClickAdd = () => {
@@ -33,12 +32,8 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
             type: typeNames[activeType],
             size: sizes[activeSize],
         };
-
-        if (activeSize === undefined && activeSize === undefined) {
-            window.alert("Выберите размер и тесто");
-        } else {
-            dispatch(addPizzasInCart(item));
-        }
+            
+        dispatch(addPizzasInCart(item));
     };
 
     const onClickPlus = () => dispatch(addPizzasInCart({ id }));
