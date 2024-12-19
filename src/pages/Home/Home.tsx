@@ -5,16 +5,16 @@ import { fetchPizzas, selectPizzaData } from "../../redux/slices/pizzaSlice";
 import { categories } from "../../component/Categories/Categories";
 import { useDispatch, useSelector } from "react-redux";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import styles from "./Home.module.scss";
 
-export const Home = () => {
+export const Home: FC = () => {
     const dispatch = useDispatch();
 
     const { categoryId, currentPage, sort, searchValue } = useSelector(selectFilter);
     const { items, status } = useSelector(selectPizzaData);
 
-    const onChangePage = (page) => {
+    const onChangePage = (page: number) => {
         dispatch(setCurrentPage(page));
     };
 
@@ -24,7 +24,10 @@ export const Home = () => {
         const category = categoryId > 0 ? `category=${categoryId}` : "";
         const search = searchValue ? `&search=${searchValue}` : "";
 
-        dispatch(fetchPizzas({ currentPage, category, sortBy, order, search }));
+        dispatch(
+            //@ts-ignore
+            fetchPizzas({ currentPage, category, sortBy, order, search })
+        );
 
         window.scrollTo(0, 0);
     };
@@ -52,7 +55,7 @@ export const Home = () => {
                     <div className={styles.content}>
                         {status === "loading"
                             ? [...new Array(10)].map((_, index) => <Skeleton key={index} />)
-                            : items.map((item) => <PizzaBlock key={item.id} {...item} />)}
+                            : items.map((item: any) => <PizzaBlock key={item.id} {...item} />)}
                     </div>
                 )}
             </div>

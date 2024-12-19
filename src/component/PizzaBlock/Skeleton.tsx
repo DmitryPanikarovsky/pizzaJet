@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 import ContentLoader from "react-content-loader";
 import styles from "./PizzaBlock.module.scss";
 
-export const Skeleton = (props) => (
+export const Skeleton: FC = () => (
     <ContentLoader
         className={styles["pizza-block"]}
         speed={1.5}
@@ -11,7 +11,6 @@ export const Skeleton = (props) => (
         viewBox="0 0 280 454"
         backgroundColor="#ffeec2"
         foregroundColor="#ffdf8c"
-        {...props}
     >
         <circle cx="136" cy="120" r="120" />
         <rect x="0" y="259" rx="10" ry="10" width="280" height="31" />

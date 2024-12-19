@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 
 import styles from "./EmptyCart.module.scss";
 import { Link } from 'react-router-dom'
 
-export const EmptyCart = () => {
+export const EmptyCart: FC = () => {
     return (
         <div className={styles.emptyCart}>
             <div className={styles["emptyCart__content"]}>

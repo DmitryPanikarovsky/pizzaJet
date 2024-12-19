@@ -3,11 +3,12 @@ import { Container } from "../Container/Container";
 import styles from "./Header.module.scss";
 import { useSelector } from "react-redux";
 import { selectCart } from "../../redux/slices/cartSlice";
+import { FC } from 'react'
 
-export const Header = () => {
+export const Header: FC = () => {
     const { totalPrice, cartPizzas } = useSelector(selectCart);
 
-    const totalCount = cartPizzas.reduce((sum, item) => sum + item.count, 0);
+    const totalCount = cartPizzas.reduce((sum: number, item: any) => sum + item.count, 0);
 
     const { pathname } = useLocation();
 

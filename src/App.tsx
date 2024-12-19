@@ -5,9 +5,8 @@ import { Header } from "./component/Header/Header";
 import { Home } from "./pages/Home/Home";
 import { Cart } from "./pages/Cart/Cart";
 import { NotFound } from "./pages/NotFound/NotFound";
-import { Route, Routes } from "react-router-dom";
-import { Description } from './pages/Description/Description'
-
+import { Description } from "./pages/Description/Description";
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
     return (

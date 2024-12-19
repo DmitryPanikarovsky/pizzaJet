@@ -1,8 +1,19 @@
 import { addPizzasInCart, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import styles from "./CartItem.module.scss";
+import { FC } from 'react'
 
-export const CartItem = ({ id, title, price, count, imageUrl, type, size }) => {
+type CartItemProps = {
+    id: string;
+    title: string;
+    price: number;
+    count: number;
+    imageUrl: string;
+    type: string;
+    size: number; 
+};
+
+export const CartItem: FC<CartItemProps> = ({ id, title, price, count, imageUrl, type, size }) => {
 
     const dispatch = useDispatch();
 

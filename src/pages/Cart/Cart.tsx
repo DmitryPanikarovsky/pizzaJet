@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,13 +7,13 @@ import { EmptyCart } from "../EmptyCart/EmptyCart";
 import { cleanCart, selectCart } from "../../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 
-export const Cart = () => {
+export const Cart: FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const { totalPrice, cartPizzas } = useSelector(selectCart);
 
-    const totalCount = cartPizzas.reduce((sum, item) => sum + item.count, 0);
+    const totalCount = cartPizzas.reduce((sum: number, item: any) => sum + item.count, 0);
 
     const clean = () => {
         if (window.confirm("Очистить корзину?")) {
@@ -39,7 +39,7 @@ export const Cart = () => {
                 </div>
                 <div className={styles["сart__list"]}>
                     <div className={styles["сart__products"]}>
-                        {cartPizzas.map((item) => (
+                        {cartPizzas.map((item: any) => (
                             <CartItem key={item.id} {...item} />
                         ))}
                     </div>

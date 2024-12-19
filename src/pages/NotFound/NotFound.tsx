@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 
 import styles from "./NotFound.module.scss";
 import { Link } from 'react-router-dom'
 
-export const NotFound = () => {
+export const NotFound: FC = () => {
     return (
         <div className={styles.notfound}>
             <div className={styles.smile}>🤨</div>

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import styles from "./ErrorPage.module.scss";
 
-export const ErrorPage = () => {
+export const ErrorPage: FC = () => {
     return (
         <div className={styles.errorPage}>
             <div className={styles.smile}>🤨</div>
