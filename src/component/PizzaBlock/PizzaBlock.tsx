@@ -43,7 +43,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
         dispatch(addPizzasInCart(item));
     };
 
-    const onClickPlus = () => dispatch(addPizzasInCart({} as CartItem));
+    const onClickPlus = () => dispatch(addPizzasInCart({ id } as CartItem));
 
     const onClickMinus = () => dispatch(decreasePizzaCount(id));
 

@@ -16,7 +16,7 @@ type CartProductProps = {
 export const CartProduct: FC<CartProductProps> = ({ id, title, price, count, imageUrl, type, size }) => {
     const dispatch = useDispatch();
 
-    const onClickPlus = () => dispatch(addPizzasInCart({} as CartItem));
+    const onClickPlus = () => dispatch(addPizzasInCart({ id } as CartItem));
 
     const onClickMinus = () => dispatch(decreasePizzaCount(id));
 
