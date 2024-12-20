@@ -85,7 +85,13 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
                             <button onClick={() => onClickMinus()} className={styles.minus}>
                                 <img src="./img/minus.svg" alt="минус" />
                             </button>
-                            <Link to={"/cart"}>
+                            <Link className={styles['cart-counter']} to={"/cart"}>
+                                <img
+                                    width="21"
+                                    height="21"
+                                    src="https://img.icons8.com/ios-filled/50/FD7E14/wicker-basket--v1.png"
+                                    alt="wicker-basket--v1"
+                                />
                                 <span>{cartItem?.count}</span>
                             </Link>
                             <button onClick={() => onClickPlus()} className={styles.plus}>

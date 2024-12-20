@@ -118,6 +118,16 @@
             }
         }
 
+        .cart-counter {
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-bottom: 2px;
+                margin-left: 6px;
+            }
+        }
+
         .minus,
         .plus {
             width: 30px;
