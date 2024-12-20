@@ -1,7 +1,12 @@
 import styles from "./PizzaBlock.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizzasInCart, decreasePizzaCount, selectCartItemById } from "../../redux/slices/cartSlice";
-import { FC, useRef, useState } from "react";
+import {
+    addPizzasInCart,
+    CartItem,
+    decreasePizzaCount,
+    selectCartItemById,
+} from "../../redux/slices/cartSlice";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 type PizzaBlockProps = {
@@ -11,9 +16,10 @@ type PizzaBlockProps = {
     imageUrl: string;
     sizes: number[];
     types: number[];
+    count: number;
 };
 
-export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
+export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types, count }) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(selectCartItemById(id));
 
@@ -24,19 +30,20 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
     const addedCount = cartItem ? cartItem.count : 0;
 
     const onClickAdd = () => {
-        const item = {
+        const item: CartItem = {
             id,
             title,
             price,
             imageUrl,
             type: typeNames[activeType],
             size: sizes[activeSize],
+            count,
         };
-            
+
         dispatch(addPizzasInCart(item));
     };
 
-    const onClickPlus = () => dispatch(addPizzasInCart({ id }));
+    const onClickPlus = () => dispatch(addPizzasInCart({} as CartItem));
 
     const onClickMinus = () => dispatch(decreasePizzaCount(id));
 
@@ -79,7 +86,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
                                 <img src="./img/minus.svg" alt="минус" />
                             </button>
                             <Link to={"/cart"}>
-                                <span>{cartItem.count}</span>
+                                <span>{cartItem?.count}</span>
                             </Link>
                             <button onClick={() => onClickPlus()} className={styles.plus}>
                                 <img src="./img/plus.svg" alt="плюс" />

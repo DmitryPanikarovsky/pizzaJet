@@ -1,9 +1,9 @@
-import { addPizzasInCart, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
+import { addPizzasInCart, CartItem, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import styles from "./CartItem.module.scss";
 import { FC } from 'react'
 
-type CartItemProps = {
+type CartProductProps = {
     id: string;
     title: string;
     price: number;
@@ -13,11 +13,10 @@ type CartItemProps = {
     size: number; 
 };
 
-export const CartItem: FC<CartItemProps> = ({ id, title, price, count, imageUrl, type, size }) => {
-
+export const CartProduct: FC<CartProductProps> = ({ id, title, price, count, imageUrl, type, size }) => {
     const dispatch = useDispatch();
 
-    const onClickPlus = () => dispatch(addPizzasInCart({ id }));
+    const onClickPlus = () => dispatch(addPizzasInCart({} as CartItem));
 
     const onClickMinus = () => dispatch(decreasePizzaCount(id));
 

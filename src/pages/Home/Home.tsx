@@ -3,13 +3,14 @@ import { Sorting, Categories, Search, Skeleton, Pagination, PizzaBlock } from ".
 import { selectFilter, setCurrentPage } from "../../redux/slices/filterSlice";
 import { fetchPizzas, selectPizzaData } from "../../redux/slices/pizzaSlice";
 import { categories } from "../../component/Categories/Categories";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { FC, useEffect } from "react";
 import styles from "./Home.module.scss";
+import { useAppDispatch } from '../../redux/store'
 
 export const Home: FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const { categoryId, currentPage, sort, searchValue } = useSelector(selectFilter);
     const { items, status } = useSelector(selectPizzaData);
@@ -24,10 +25,7 @@ export const Home: FC = () => {
         const category = categoryId > 0 ? `category=${categoryId}` : "";
         const search = searchValue ? `&search=${searchValue}` : "";
 
-        dispatch(
-            //@ts-ignore
-            fetchPizzas({ currentPage, category, sortBy, order, search })
-        );
+        dispatch(fetchPizzas({ currentPage, category, sortBy, order, search }));
 
         window.scrollTo(0, 0);
     };
