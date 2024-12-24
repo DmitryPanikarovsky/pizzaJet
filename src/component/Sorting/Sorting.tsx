@@ -1,15 +1,10 @@
-import { setSortType, Sort } from "../../redux/slices/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Sorting.module.scss";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
+import { setSortType, Sort } from "../../redux/slices/filterSlice";
 import { selectFilter } from "../../redux/slices/filterSlice";
-
-// type SortListItem = {
-//     name: string;
-//     sortProperty: string;
-// }
+import { useEffect } from "react";
+import { useState } from "react";
+import { useRef } from "react";
+import styles from "./Sorting.module.scss";
 
 export const sortItem: Sort[] = [
     { name: "популярности", sortProperty: "rating" },
@@ -24,7 +19,7 @@ export const Sorting = () => {
 
     const sortRef = useRef<HTMLSpanElement>(null);
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
 
     const onClickSortItem = (object: Sort) => dispatch(setSortType(object));
 

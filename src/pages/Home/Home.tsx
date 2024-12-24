@@ -3,11 +3,11 @@ import { Sorting, Categories, Search, Skeleton, Pagination, PizzaBlock } from ".
 import { selectFilter, setCurrentPage } from "../../redux/slices/filterSlice";
 import { fetchPizzas, selectPizzaData } from "../../redux/slices/pizzaSlice";
 import { categories } from "../../component/Categories/Categories";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { FC, useEffect } from "react";
 import styles from "./Home.module.scss";
-import { useAppDispatch } from '../../redux/store'
+import { useAppDispatch } from "../../redux/store";
 
 export const Home: FC = () => {
     const dispatch = useAppDispatch();
