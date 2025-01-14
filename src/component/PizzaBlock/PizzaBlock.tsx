@@ -22,12 +22,11 @@ type PizzaBlockProps = {
 export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types, count }) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(selectCartItemById(id));
-
-    const [activeType, setActiveType] = useState<number>(0);
-    const [activeSize, setActiveSize] = useState<number>(0);
-
-    const typeNames = ["тонкое", "традиционное"];
     const addedCount = cartItem ? cartItem.count : 0;
+    const typeNames = ["тонкое", "традиционное"];
+
+    const [activeType, setActiveType] = useState<number>(types[0]);
+    const [activeSize, setActiveSize] = useState<number>(0);
 
     const onClickAdd = () => {
         const item: CartItem = {
@@ -85,7 +84,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
                             <button onClick={() => onClickMinus()} className={styles.minus}>
                                 <img src="./img/minus.svg" alt="минус" />
                             </button>
-                            <Link className={styles['cart-counter']} to={"/cart"}>
+                            <Link className={styles["cart-counter"]} to={"/cart"}>
                                 <img
                                     width="21"
                                     height="21"

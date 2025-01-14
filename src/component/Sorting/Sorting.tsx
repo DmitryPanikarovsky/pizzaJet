@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSortType, Sort } from "../../redux/slices/filterSlice";
-import { selectFilter } from "../../redux/slices/filterSlice";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import styles from "./Sorting.module.scss";
@@ -13,9 +12,12 @@ export const sortItem: Sort[] = [
     { name: "алфавиту", sortProperty: "title" },
 ];
 
-export const Sorting = () => {
+type SortingProps = {
+    value: Sort;
+}
+
+export const Sorting: FC<SortingProps> = ({ value }) => {
     const dispatch = useDispatch();
-    const { sort } = useSelector(selectFilter);
 
     const sortRef = useRef<HTMLSpanElement>(null);
 
@@ -46,7 +48,7 @@ export const Sorting = () => {
                 />
                 <div>Сортировка по:</div>
                 <span ref={sortRef} onClick={() => setOpen((open) => !open)}>
-                    {sort.name}
+                    {value.name}
                 </span>
             </div>
             {open && (
@@ -56,7 +58,7 @@ export const Sorting = () => {
                             <li
                                 key={index}
                                 onClick={() => onClickSortItem(object)}
-                                className={sort.sortProperty === object.sortProperty ? styles.active : ""}
+                                className={value.sortProperty === object.sortProperty ? styles.active : ""}
                             >
                                 {object.name}
                             </li>

@@ -37,7 +37,7 @@ export const Home: FC = () => {
     return (
         <div className={styles.Home}>
             <div className={styles["content-top"]}>
-                <Sorting />
+                <Sorting value={sort} />
                 <Categories />
             </div>
             <div className={styles["content-header"]}>

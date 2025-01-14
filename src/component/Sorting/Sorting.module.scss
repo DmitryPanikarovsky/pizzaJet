@@ -11,13 +11,14 @@
 
 .sorting {
     position: relative;
-    width: 260px;
+    min-width: 260px;
 
     &__popup {
         position: absolute;
-        right: -25px;
+        right: -40px;
         top: 24px;
-        background: #fff8e5f3;
+        background: #fff7e1ee;
+        backdrop-filter: blur(10px);
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.174);
         border-radius: 10px;
         overflow: hidden;
@@ -25,7 +26,7 @@
         width: 170px;
         z-index: 5;
         animation-name: appear;
-        animation-duration: 400ms;
+        animation-duration: 200ms;
 
         ul {
             overflow: hidden;
@@ -34,10 +35,11 @@
                 padding: 10px 20px;
                 cursor: pointer;
                 font-size: 14px;
+                transition: all .2s;
 
                 &.active,
                 &:hover {
-                    background: rgba(254, 95, 30, 0.05);
+                    background: rgba(254, 93, 30, 0.102);
                 }
 
                 &.active {
@@ -52,6 +54,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        font-size: 16px;
 
         img {
             transition: transform .5s;
@@ -63,13 +66,11 @@
 
         div {
             font-weight: 700;
-            font-size: 14px;
             color: #2c2c2c;
         }
 
         span {
             font-weight: 400;
-            font-size: 14px;
             color: #fe5f1e;
             border-bottom: 1px solid #fe5f1e;
             cursor: pointer;

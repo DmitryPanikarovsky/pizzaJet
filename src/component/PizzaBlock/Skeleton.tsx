@@ -9,8 +9,8 @@ export const Skeleton: FC = () => (
         width={280}
         height={454}
         viewBox="0 0 280 454"
-        backgroundColor="#ffeec2"
-        foregroundColor="#ffdf8c"
+        backgroundColor="#ffe5a6"
+        foregroundColor="#ffd092"
     >
         <circle cx="136" cy="120" r="120" />
         <rect x="0" y="259" rx="10" ry="10" width="280" height="31" />

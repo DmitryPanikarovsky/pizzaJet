@@ -1,15 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { CartProduct } from "../../component/CartItem/CartItem";
 import { EmptyCart } from "../EmptyCart/EmptyCart";
 import { cleanCart, selectCart } from "../../redux/slices/cartSlice";
-import { useNavigate } from "react-router-dom";
 
 export const Cart: FC = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const { totalPrice, cartPizzas } = useSelector(selectCart);
 
@@ -19,9 +17,6 @@ export const Cart: FC = () => {
         if (window.confirm("Очистить корзину?")) {
             dispatch(cleanCart());
         }
-        setTimeout(() => {
-            navigate("/");
-        }, 1500);
     };
 
     return cartPizzas.length > 0 ? (
@@ -55,7 +50,21 @@ export const Cart: FC = () => {
                         <div className={styles.buttons}>
                             <Link to={"/"}>
                                 <button className={styles.left}>
-                                    <img src="./img/back.svg" alt="стрелка назад" />
+                                    <svg
+                                        width="8"
+                                        height="14"
+                                        viewBox="0 0 8 14"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M7 13L1 6.93015L6.86175 1"
+                                            stroke="#606060"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
                                     Вернуться назад
                                 </button>
                             </Link>

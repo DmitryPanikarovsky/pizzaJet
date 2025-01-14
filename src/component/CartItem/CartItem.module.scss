@@ -85,27 +85,6 @@
     }
 }
 
-.minus {
-    &:disabled {
-        border: 2px solid #9f9f9f;
-
-        &:hover {
-            transform: none;
-        }
-    
-        &:active {
-            transform: none;
-        }
-
-        svg {
-            path {
-                fill: #9f9f9f;
-            }
-        }
-    }
-
-}
-
 .remove {
     img {
         transform: rotate(45deg);

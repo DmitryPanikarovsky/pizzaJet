@@ -6,10 +6,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const Description: FC = () => {
     const [pizza, setPizza] = useState<{
-        imageUrl: string,
-        title: string,
-        description: string,
-        price: number
+        imageUrl: string;
+        title: string;
+        description: string;
+        price: number;
     }>();
     const params = useParams();
     const navigate = useNavigate();
@@ -32,11 +32,7 @@ export const Description: FC = () => {
         fetchDescription();
     }, []);
 
-    if (!pizza) {
-        return <>"Downloading..."</>;
-    }
-
-    return (
+    return pizza ? (
         <div className={styles.Description}>
             <img src={pizza.imageUrl} alt="pizza" />
             <div className={styles.right}>
@@ -49,5 +45,7 @@ export const Description: FC = () => {
                 </div>
             </div>
         </div>
+    ) : (
+        <div>"Downloading..."</div>
     );
 };

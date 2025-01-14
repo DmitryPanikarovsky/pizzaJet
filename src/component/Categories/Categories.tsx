@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import styles from "./Categories.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../../redux/slices/filterSlice";

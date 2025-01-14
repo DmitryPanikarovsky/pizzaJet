@@ -1,7 +1,12 @@
-import { addPizzasInCart, CartItem, decreasePizzaCount, removePizzasOutCart } from "../../redux/slices/cartSlice";
+import {
+    addPizzasInCart,
+    CartItem,
+    decreasePizzaCount,
+    removePizzasOutCart,
+} from "../../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import styles from "./CartItem.module.scss";
-import { FC } from 'react'
+import { FC } from "react";
 
 type CartProductProps = {
     id: string;
@@ -10,7 +15,7 @@ type CartProductProps = {
     count: number;
     imageUrl: string;
     type: string;
-    size: number; 
+    size: number;
 };
 
 export const CartProduct: FC<CartProductProps> = ({ id, title, price, count, imageUrl, type, size }) => {
@@ -37,7 +42,7 @@ export const CartProduct: FC<CartProductProps> = ({ id, title, price, count, ima
             </div>
             <div className={styles["item-right"]}>
                 <div className={styles.counter}>
-                    <button disabled={count === 1} onClick={() => onClickMinus()} className={styles.minus}>
+                    <button onClick={() => onClickMinus()} className={styles.minus}>
                         <svg
                             width="10"
                             height="2"

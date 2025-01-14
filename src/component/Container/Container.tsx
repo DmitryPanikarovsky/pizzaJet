@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from "react";
 import styles from "./Container.module.scss";
 
 type ContainerProps = {

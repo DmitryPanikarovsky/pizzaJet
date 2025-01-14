@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #f4bb60;
+    background: url('../public/img/wallpaperPizza4.png') top left / cover no-repeat;
     min-height: 100vh;
     padding: 30px 15px;
 }
@@ -35,12 +35,12 @@ a {
     top: 87px;
     left: 50px;
     line-height: 1;
-    filter: blur(2px);
-    
+    filter: blur(3px);
+
     :first-child {
         color: #da7e15;
     }
-    
+
     :nth-child(2) {
         color: #da7e15;
     }
