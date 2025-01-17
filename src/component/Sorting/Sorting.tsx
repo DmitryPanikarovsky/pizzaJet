@@ -32,7 +32,6 @@ export const Sorting: FC<SortingProps> = ({ value }) => {
                 document.body.removeEventListener("click", handleClickOutside);
             }
         };
-
         if (open) {
             document.body.addEventListener("click", handleClickOutside);
         }

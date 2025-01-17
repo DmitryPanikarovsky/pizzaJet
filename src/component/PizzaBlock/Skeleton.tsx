@@ -7,7 +7,7 @@ export const Skeleton: FC = () => (
         className={styles["pizza-block"]}
         speed={1.5}
         width={280}
-        height={454}
+        height={476}
         viewBox="0 0 280 454"
         backgroundColor="#ffe5a6"
         foregroundColor="#ffd092"

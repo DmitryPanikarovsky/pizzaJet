@@ -3,7 +3,7 @@ import { FC } from "react";
 import styles from "./NotFound.module.scss";
 import { Link } from 'react-router-dom'
 
-export const NotFound: FC = () => (
+const NotFound: FC = () => (
     <div className={styles.notfound}>
         <div className={styles.smile}>🤨</div>
         <div className={styles.error}>Ничего не найдено</div>
@@ -14,3 +14,4 @@ export const NotFound: FC = () => (
     </div>
 );
 
+export default NotFound;

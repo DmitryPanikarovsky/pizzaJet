@@ -4,13 +4,15 @@ import styles from "./Description.module.scss";
 import { FC, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const Description: FC = () => {
-    const [pizza, setPizza] = useState<{
-        imageUrl: string;
-        title: string;
-        description: string;
-        price: number;
-    }>();
+interface PizzaProps {
+    imageUrl: string;
+    title: string;
+    description: string;
+    price: number;
+};
+
+const Description: FC = () => {
+    const [pizza, setPizza] = useState<PizzaProps>();
     const params = useParams();
     const navigate = useNavigate();
 
@@ -46,6 +48,8 @@ export const Description: FC = () => {
             </div>
         </div>
     ) : (
-        <div>"Downloading..."</div>
+        <div>Downloading...</div>
     );
 };
+
+export default Description;

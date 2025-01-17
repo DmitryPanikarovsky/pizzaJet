@@ -1,12 +1,13 @@
-import { FC } from "react";
+import { FC, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { CartProduct } from "../../component/CartItem/CartItem";
-import { EmptyCart } from "../EmptyCart/EmptyCart";
 import { cleanCart, selectCart } from "../../redux/slices/cartSlice";
 
-export const Cart: FC = () => {
+const EmptyCart = lazy(() => import("../EmptyCart/EmptyCart"));
+
+const Cart: FC = () => {
     const dispatch = useDispatch();
 
     const { totalPrice, cartPizzas } = useSelector(selectCart);
@@ -75,6 +76,10 @@ export const Cart: FC = () => {
             </div>
         </div>
     ) : (
-        <EmptyCart />
+        <Suspense fallback={<>...</>}>
+            <EmptyCart />
+        </Suspense>
     );
 };
+
+export default Cart;

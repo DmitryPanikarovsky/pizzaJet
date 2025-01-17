@@ -1,4 +1,4 @@
-import { calcTotalPrice } from './calcTotalPrice'
+import { calcTotalPrice } from "./calcTotalPrice";
 
 export const getCartFromLS = () => {
     const data = localStorage.getItem("cart");
@@ -7,6 +7,6 @@ export const getCartFromLS = () => {
 
     return {
         cartPizzas,
-        totalPrice
-    }
+        totalPrice,
+    };
 };

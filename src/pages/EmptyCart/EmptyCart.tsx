@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./EmptyCart.module.scss";
 
-export const EmptyCart: FC = () => (
+const EmptyCart: FC = () => (
     <div className={styles.emptyCart}>
         <div className={styles["emptyCart__content"]}>
             <div className={styles.heading}>Корзина пустая 😕</div>
@@ -23,3 +23,5 @@ export const EmptyCart: FC = () => (
         </div>
     </div>
 );
+
+export default EmptyCart;
