@@ -1,13 +1,8 @@
-import { Categories } from "./Categories/Categories";
-import { Sorting } from "./Sorting/Sorting";
-import { Search } from "./Search/Search";
-import { Pagination } from "./Pagination/Pagination";
-import { PizzaBlock } from "./PizzaBlock/PizzaBlock";
-import { Skeleton } from "./PizzaBlock/Skeleton";
-
-export { Categories };
-export { Sorting };
-export { Search };
-export { Pagination };
-export { PizzaBlock };
-export { Skeleton };
+export * from "./Categories/Categories";
+export * from "./Sorting/Sorting";
+export * from "./Search/Search";
+export * from "./Pagination/Pagination";
+export * from "./PizzaBlock/PizzaBlock";
+export * from "./PizzaBlock/Skeleton";
+export * from "./CartItem/CartItem";
+export * from "./Header/Header";

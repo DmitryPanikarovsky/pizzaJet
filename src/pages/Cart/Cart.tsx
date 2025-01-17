@@ -2,7 +2,7 @@ import { FC, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { CartProduct } from "../../component/CartItem/CartItem";
+import { CartProduct } from "../../component/publicApi";
 import { cleanCart, selectCart } from "../../redux/slices/cartSlice";
 
 const EmptyCart = lazy(() => import("../EmptyCart/EmptyCart"));

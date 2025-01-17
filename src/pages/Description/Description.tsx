@@ -48,7 +48,7 @@ const Description: FC = () => {
             </div>
         </div>
     ) : (
-        <div>Downloading...</div>
+        <div>Зогрузко...</div>
     );
 };
 
