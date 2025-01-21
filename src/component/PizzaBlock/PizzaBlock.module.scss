@@ -101,7 +101,15 @@
             animation-name: appear;
             animation-duration: 400ms;
         }
+    }
 
+    .block-counter {
+        min-width: 116px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
         .counter {
             width: 100%;
             display: flex;
@@ -115,6 +123,7 @@
                 font-size: 22px;
                 margin-right: 8px;
                 margin-left: 7px;
+                // color: #eb5a1e;
             }
         }
 

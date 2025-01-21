@@ -78,7 +78,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
             </div>
             <div className={styles["pizza-block__bottom"]}>
                 <div className={styles["pizza-block__price"]}>от {price} ₽</div>
-                <div className={styles.button}>
+                {/* <div className={styles.button}>
                     {addedCount > 0 ? (
                         <div className={styles.counter}>
                             <button onClick={() => onClickMinus()} className={styles.minus}>
@@ -100,7 +100,32 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
                     ) : (
                         <span onClick={() => onClickAdd()}>Добавить</span>
                     )}
-                </div>
+                </div> */}
+                {addedCount > 0 ? (
+                    <div className={styles["block-counter"]}>
+                        <div className={styles.counter}>
+                            <button onClick={() => onClickMinus()} className={styles.minus}>
+                                <img src="./img/minus.svg" alt="минус" />
+                            </button>
+                            <Link className={styles["cart-counter"]} to={"/cart"}>
+                                <img
+                                    width="21"
+                                    height="21"
+                                    src="https://img.icons8.com/ios-filled/50/FD7E14/wicker-basket--v1.png"
+                                    alt="wicker-basket--v1"
+                                />
+                                <span>{cartItem?.count}</span>
+                            </Link>
+                            <button onClick={() => onClickPlus()} className={styles.plus}>
+                                <img src="./img/plus.svg" alt="плюс" />
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className={styles.button}>
+                        <span onClick={() => onClickAdd()}>Добавить</span>
+                    </div>
+                )}
             </div>
         </div>
     );
